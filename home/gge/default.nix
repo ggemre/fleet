@@ -9,8 +9,8 @@ if hostType == "nixos" || hostType == "darwin" then {
   ];
   home-manager.users.gge = {
     imports = [
-      ./core
-      ./dev
+      ../../home/core
+      ../../home/dev
       ./modules
     ];
     home.username = config.users.users.gge.name;

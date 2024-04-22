@@ -1,20 +1,10 @@
 { lib, pkgs, ... }: {
   imports = [
-    ../../core
-
-    ../../graphical
-
-    ../../users/bemeurer
+    ../../modules/core
+    ../../home/gge
   ];
 
-  environment.variables.JAVA_HOME = "$(/usr/libexec/java_home)";
-
-  homebrew.casks = [
-    { name = "podman-desktop"; greedy = true; }
-  ];
-
-  home-manager.users.bemeurer = { config, ... }: {
-    imports = [ ../../users/bemeurer/dev/aws.nix ];
+  home-manager.users.gge = { config, ... }: {
     home.sessionPath = [
       "${config.home.homeDirectory}/.local/bin"
     ];
@@ -26,7 +16,7 @@
       enable = true;
       ephemeral = true;
       config = { ... }: {
-        imports = [ ../../core/nix.nix ];
+        # imports = [ ../../modules/core/nix.nix ];
         _module.args.hostType = "nixos";
         virtualisation.host.pkgs = lib.mkForce (pkgs.extend (final: _: {
           nix = final.nixVersions.unstable;
@@ -37,12 +27,11 @@
     };
     settings = {
       max-substitution-jobs = 20;
-      system-features = [ "big-parallel" "gccarch-armv8-a" ];
-      trusted-users = [ "bemeurer" ];
+      trusted-users = [ "gge" ];
     };
   };
 
-  users.users.bemeurer = {
+  users.users.gge = {
     uid = 504;
     gid = 20;
   };

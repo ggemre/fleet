@@ -38,73 +38,9 @@ let
     else throw "unknown host type '${type}'";
 in
 {
-  aurelius = mkHost {
-    type = "nixos";
-    address = "100.69.178.40";
-    hostPlatform = "aarch64-linux";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILRlfGCSK2w34ckIGoRHaZ01CbF/7Zk4VNmyokkvg7cF";
-    remoteBuild = false;
-  };
-  bohr = mkHost {
-    type = "nixos";
-    address = "100.123.20.11";
-    hostPlatform = "x86_64-linux";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBTh+kYOeeYoBuxvA00nGojfBHUQlXW3iF7aRIw9VbY1";
-  };
-  fourier = mkHost {
-    type = "nixos";
-    address = "100.77.107.1";
-    hostPlatform = "x86_64-linux";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMJEc036Z0umFUeSgksRgBWhcEeqiVhuXNQZTipZVRMn";
-  };
-  goethe = mkHost {
-    type = "home-manager";
-    hostPlatform = "x86_64-linux";
-    homeDirectory = "/home/bemeurer";
-  };
-  hilbert = mkHost {
-    type = "home-manager";
-    hostPlatform = "x86_64-linux";
-    homeDirectory = "/home/bemeurer";
-  };
-  jung = mkHost {
-    type = "nixos";
-    address = "100.80.1.112";
-    hostPlatform = "x86_64-linux";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHws1wwXYHDmU+Bjcbw8IZv2V+fbxaTDQc44XoUQ604t";
-  };
-  nozick = mkHost {
-    type = "nixos";
-    address = "100.124.29.84";
-    hostPlatform = "x86_64-linux";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzb5JCgcXJZHDkY09vBAvIF34JabI+ZBpGqJDy6KbI";
-  };
-  poincare = mkHost {
-    type = "darwin";
-    hostPlatform = "aarch64-darwin";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMYvFEyV+nebaTfrwAULWDmCk0L6O+1OyZc43JnizcIB";
-  };
-  popper = mkHost {
-    type = "home-manager";
-    hostPlatform = "aarch64-linux";
-    homeDirectory = "/home/bemeurer";
-  };
-  riemann = mkHost {
-    type = "nixos";
-    address = "100.67.173.60";
-    hostPlatform = "aarch64-linux";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOof4536ylMfznpkKbH/kqiuCOs2hCLXMBnF9md462sW";
-  };
-  spinoza = mkHost {
-    type = "nixos";
-    address = "100.68.240.30";
-    hostPlatform = "x86_64-linux";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDUZPmPTATZ4nBWstPqlUiguvxr26XWAE9BGPVNNRBR5";
-    large = true;
-  };
-  mre = mkHost {
+  crius = mkHost {
     type = "darwin";
     hostPlatform = "x86_64-darwin";
-    pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMYvFEyV+nebaTfrwAULWDmCk0L6O+1OyZc43JnizcIB";
+    pubkey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGMw0NKPWSAYBnCmhW2XF3EVMu28eG2Ukq+15NCYm9kSqMN45w0vfHYmBRlVe6ANuZgORpNaHt/prRnIwiKEkLCSjcaRV0QAWKoL/VvCOd5DRj1g37yALhYQTc7FHvwv4RLnmNhX/OUHTAa5kHuWXX+vp2Aj5lOj9aAQk/tbEyVfcWOwLrG/3RTLHoYgEEw3sBN+m2inj1CO2i2GQJzYdoBJ1NiFUwATaRVB7PHssQD70flZbZY3FJNMfKWU/9rStvnQlS/F6QylrVHs0If2W2FZeRtqG6364nBueDod51R+brRY1A4C4+9rbdbC02O8XC0ytdlJmOi58pxNRWrx3T6SBuO3sDAgDZr5rhCqyFBYxRfoQ4/C5cCWHC4rXweW0pPfXk87jjwLPuFcOsDaMch16+syIXgSCsW5c+FC7gI1xSjrQMXad4P6Sj3va1ybtCYuRITaX2JTlr5eYb2oQpucjR0XEa0g1rBL0Z6MpCRGmbfZYnOjRgF67EfzQrxxk=";
   };
 }
