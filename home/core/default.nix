@@ -14,7 +14,7 @@
     # ./starship.nix
     # ./tmux.nix
     # ./xdg.nix
-    ./zsh.nix
+    # ./zsh.nix
   ];
 
   # XXX: Manually enabled in the graphic module
@@ -37,14 +37,14 @@
       rsync
       truecolor-check
     ];
-    shellAliases = {
-      cat = "bat";
-      cls = "clear";
-      l = "ls";
-      la = "ls --all";
-      ls = "eza --binary --header --long";
-      man = "batman";
-    };
+    # shellAliases = {
+    #   cat = "bat";
+    #   cls = "clear";
+    #   l = "ls";
+    #   la = "ls --all";
+    #   ls = "eza --binary --header --long";
+    #   man = "batman";
+    # };
   };
 
   programs = {
@@ -62,20 +62,20 @@
     zoxide.enable = true;
   };
 
-  stylix = {
-    base16Scheme = "${base16-schemes}/ayu-dark.yaml";
-    # XXX: We fetchurl from the repo because flakes don't support git-lfs assets
-    image = pkgs.fetchurl {
-      url = "https://media.githubusercontent.com/media/lovesegfault/nix-config/bda48ceaf8112a8b3a50da782bf2e65a2b5c4708/users/bemeurer/assets/walls/plants-00.jpg";
-      hash = "sha256-n8EQgzKEOIG6Qq7og7CNqMMFliWM5vfi2zNILdpmUfI=";
-    };
-    targets = {
-      gnome.enable = hostType == "nixos";
-      gtk.enable = hostType == "nixos";
-      kde.enable = lib.mkDefault false;
-      xfce.enable = lib.mkDefault false;
-    };
-  };
+  # stylix = {
+  #   base16Scheme = "${base16-schemes}/ayu-dark.yaml";
+  #   # XXX: We fetchurl from the repo because flakes don't support git-lfs assets
+  #   image = pkgs.fetchurl {
+  #     url = "https://media.githubusercontent.com/media/lovesegfault/nix-config/bda48ceaf8112a8b3a50da782bf2e65a2b5c4708/users/bemeurer/assets/walls/plants-00.jpg";
+  #     hash = "sha256-n8EQgzKEOIG6Qq7og7CNqMMFliWM5vfi2zNILdpmUfI=";
+  #   };
+  #   targets = {
+  #     gnome.enable = hostType == "nixos";
+  #     gtk.enable = hostType == "nixos";
+  #     kde.enable = lib.mkDefault false;
+  #     xfce.enable = lib.mkDefault false;
+  #   };
+  # };
 
   systemd.user.startServices = "sd-switch";
 
