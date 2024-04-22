@@ -9,13 +9,13 @@ if hostType == "nixos" || hostType == "darwin" then {
   ];
   home-manager.users.gge = {
     imports = [
-      ../core
+      ../../home/core
       # ../dev
-      # ./modules
-      ../old # TODO: temp test
+      ./modules
+      ../../home/old # TODO: temp test
     ];
     home.username = config.users.users.gge.name;
-    # home.uid = config.users.users.gge.uid;
+    home.uid = config.users.users.gge.uid;
   };
 }
 else if hostType == "home-manager" then {

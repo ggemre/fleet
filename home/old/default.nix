@@ -1,9 +1,7 @@
 {
   lib,
-  user,
   ...
 }: {
-  # import sub modules
   imports = [
     ./shell.nix
     ./core.nix

@@ -2,7 +2,7 @@
   imports = [
     ../../modules/core
     ../../modules/old/homebrew-mirror.nix # TODO: temp test
-    ../../home/gge
+    ../../profiles/gge
   ];
 
   home-manager.users.gge = { config, ... }: {
