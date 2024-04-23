@@ -44,7 +44,7 @@ let
         extraSpecialArgs = {
           hostType = type;
           inherit (inputs)
-            base16-schemes
+            # base16-schemes
             impermanence
             nix-index-database
             stylix;

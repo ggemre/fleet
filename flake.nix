@@ -1,5 +1,5 @@
 {
-  description = "lovesegfault's NixOS config";
+  description = "Nix flake to configure my entire 'fleet' of systems.";
 
   nixConfig = {
     extra-trusted-substituters = [
@@ -23,10 +23,10 @@
       };
     };
 
-    base16-schemes = {
-      url = "github:tinted-theming/base16-schemes";
-      flake = false;
-    };
+    # base16-schemes = {
+    #   url = "github:tinted-theming/base16-schemes";
+    #   flake = false;
+    # };
 
     darwin = {
       url = "github:LnL7/nix-darwin";
@@ -136,16 +136,16 @@
         perSystem = ctx@{ config, self', inputs', pkgs, system, ... }: {
           _module.args.pkgs = import inputs.nixpkgs {
             localSystem = system;
-            overlays = [ self.overlays.default ];
+            # overlays = [ self.overlays.default ];
             config = {
               allowUnfree = true;
               allowAliases = true;
             };
           };
 
-          devShells = import ./nix/dev-shell.nix ctx;
+          devShells = import ./utils/dev-shell.nix ctx;
 
-          packages = import ./nix/packages.nix toplevel ctx;
+          packages = import ./utils/packages.nix toplevel ctx;
 
           pre-commit = {
             check.enable = true;
@@ -173,15 +173,14 @@
         };
 
         flake = {
-          hosts = import ./nix/hosts.nix;
+          hosts = import ./utils/hosts.nix;
 
-          darwinConfigurations = import ./nix/darwin.nix toplevel;
-          homeConfigurations = import ./nix/home-manager.nix toplevel;
-          nixosConfigurations = import ./nix/nixos.nix toplevel;
+          darwinConfigurations = import ./utils/darwin.nix toplevel;
+          nixosConfigurations = import ./utils/nixos.nix toplevel;
+          homeConfigurations = import ./utils/home-manager.nix toplevel;
 
-          deploy = import ./nix/deploy.nix toplevel;
-
-          overlays = import ./nix/overlay.nix toplevel;
+          # deploy = import ./utils/deploy.nix toplevel;
+          # overlays = import ./utils/overlay.nix toplevel;
         };
       });
 }

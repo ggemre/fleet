@@ -5,7 +5,7 @@ let
 
   hosts =
     let
-      all = import ./nix/hosts.nix;
+      all = import ./utils/hosts.nix;
       withPubkey = filter (a: all.${a} ? pubkey) (attrNames all);
     in
     listToAttrs (map (name: { inherit name; value = all.${name}.pubkey; }) withPubkey);

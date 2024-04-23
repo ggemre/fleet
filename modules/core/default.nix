@@ -5,7 +5,6 @@
       else if hostType == "darwin" then ./darwin.nix
       else throw "Unknown hostType '${hostType}' for core"
     )
-    ./aspell.nix
     ./nix.nix
   ];
 
@@ -47,7 +46,7 @@
   };
 
   stylix = {
-    base16Scheme = "${base16-schemes}/ayu-dark.yaml";
+    base16Scheme = ../../themes/catppuccin-mocha.yaml;
     # We need this otherwise the autoimport clashes with our manual import.
     homeManagerIntegration.autoImport = false;
     # XXX: We fetchurl from the repo because flakes don't support git-lfs assets
