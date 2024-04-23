@@ -17,7 +17,7 @@
       enable = true;
       ephemeral = true;
       config = { ... }: {
-        # imports = [ ../../modules/core/nix.nix ];
+        imports = [ ../../modules/core/nix.nix ];
         _module.args.hostType = "nixos";
         virtualisation.host.pkgs = lib.mkForce (pkgs.extend (final: _: {
           nix = final.nixVersions.unstable;

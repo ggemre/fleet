@@ -17,27 +17,15 @@
     # ./zsh.nix
   ];
 
-  # XXX: Manually enabled in the graphic module
-  dconf.enable = false;
 
   home = {
     username = "gge";
     stateVersion = "23.11";
     packages = with pkgs; [
-      # bandwhich
       eza
-      fd
       fzf
-      kalker
-      mosh
       neofetch
-      nix-closure-size
-      nix-output-monitor
       ripgrep
-      rsync
-      truecolor-check
-
-      raycast
     ];
     # shellAliases = {
     #   cat = "bat";
