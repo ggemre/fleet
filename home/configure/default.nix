@@ -1,4 +1,4 @@
-{ base16-schemes, hostType, impermanence, lib, nix-index-database, pkgs, stylix, ... }: {
+{ hostType, impermanence, lib, nix-index-database, pkgs, stylix, ... }: {
   imports = [
     impermanence.nixosModules.home-manager.impermanence
     nix-index-database.hmModules.nix-index

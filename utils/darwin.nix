@@ -19,7 +19,6 @@ let
         specialArgs = {
           hostType = type;
           inherit (inputs)
-            # base16-schemes
             home-manager
             impermanence
             nix-index-database

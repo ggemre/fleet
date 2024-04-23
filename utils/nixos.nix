@@ -21,7 +21,6 @@ let
           hostType = type;
           inherit (inputs)
             agenix
-            # base16-schemes
             home-manager
             impermanence
             lanzaboote

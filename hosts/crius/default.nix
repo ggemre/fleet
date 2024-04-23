@@ -1,8 +1,10 @@
 { lib, pkgs, ... }: {
   imports = [
+    ./system.nix
+    ../../profiles/gge
+    
     ../../modules/core
     ../../modules/homebrew
-    ../../profiles/gge
   ];
 
   home-manager.users.gge = { config, ... }: {

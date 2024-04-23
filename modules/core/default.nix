@@ -1,4 +1,4 @@
-{ pkgs, base16-schemes, hostType, impermanence, nix-index-database, stylix, ... }: {
+{ pkgs, hostType, impermanence, nix-index-database, stylix, ... }: {
   imports = [
     (
       if hostType == "nixos" then ./nixos.nix
@@ -31,7 +31,6 @@
     useUserPackages = true;
     extraSpecialArgs = {
       inherit
-        base16-schemes
         hostType
         impermanence
         nix-index-database
