@@ -48,18 +48,18 @@
   };
 
   programs = {
-    atuin = {
-      enable = true;
-      settings.auto_sync = false;
-      flags = [ "--disable-up-arrow" ];
-    };
+    # atuin = {
+    #   enable = true;
+    #   settings.auto_sync = false;
+    #   flags = [ "--disable-up-arrow" ];
+    # };
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [ batman ];
     };
     gpg.enable = true;
     nix-index.enable = true;
-    zoxide.enable = true;
+    # zoxide.enable = true;
   };
 
   # stylix = {

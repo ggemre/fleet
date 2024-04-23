@@ -2,6 +2,7 @@
   imports = [
     ../../modules/core
     ../../modules/old/homebrew-mirror.nix # TODO: temp test
+    ../../modules/old/cask.nix
     ../../profiles/gge
   ];
 

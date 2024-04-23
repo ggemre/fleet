@@ -60,7 +60,7 @@
       ln -sv ${pkgs.path} $out/nixpkgs
     '';
 
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 
   systemd = {
