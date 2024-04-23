@@ -1,8 +1,7 @@
 { lib, pkgs, ... }: {
   imports = [
     ../../modules/core
-    ../../modules/old/homebrew-mirror.nix # TODO: temp test
-    ../../modules/old/cask.nix
+    ../../modules/homebrew
     ../../profiles/gge
   ];
 

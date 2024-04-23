@@ -9,10 +9,16 @@ if hostType == "nixos" || hostType == "darwin" then {
   ];
   home-manager.users.gge = {
     imports = [
+      ../../home/configure
       ../../home/core
-      # ../dev
+      ../../home/git
+      ../../home/shell
+      ../../home/direnv
+      ../../home/helix
+      ../../home/kitty
+      ../../home/starship
+
       ./modules
-      ../../home/old # TODO: temp test
     ];
     home.username = config.users.users.gge.name;
     home.uid = config.users.users.gge.uid;
