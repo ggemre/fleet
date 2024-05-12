@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
 {
-  age.secrets.bemeurerPassword.file = ./password.age;
+  # age.secrets.bemeurerPassword.file = ./password.age;
 
-  users.groups.bemeurer.gid = config.users.users.gge.uid;
+  users.groups.gge.gid = config.users.users.gge.uid;
 
   users.users.gge = {
     createHome = true;
@@ -30,15 +30,13 @@ with lib;
     # hashedPasswordFile = config.age.secrets.bemeurerPassword.path;
   };
 
-  programs._1password-gui.polkitPolicyOwners = [ "gge" ];
-
-  home-manager.users.gge= {
-    imports = optionals config.programs.sway.enable [
-      ./graphical
-      ./graphical/sway
-    ] ++ optionals config.services.xserver.windowManager.i3.enable [
-      ./graphical
-      ./graphical/i3
-    ];
-  };
+  # home-manager.users.gge= {
+  #   imports = optionals config.programs.sway.enable [
+  #     ./graphical
+  #     ./graphical/sway
+  #   ] ++ optionals config.services.xserver.windowManager.i3.enable [
+  #     ./graphical
+  #     ./graphical/i3
+  #   ];
+  # };
 }

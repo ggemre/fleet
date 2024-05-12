@@ -1,12 +1,13 @@
-{ config, self', pkgs, ... }:
+{ config, self', pkgs, inputs', system, ... }:
 {
   default = pkgs.mkShell {
-    name = "nix-config";
+    name = "fleet";
 
     nativeBuildInputs = with pkgs; [
       # Nix
-      agenix
-      deploy-rs.deploy-rs
+      # inputs'.agenix.packages.${system}.default
+      inputs'.agenix.packages.x86_64-linux.default
+      # deploy-rs.deploy-rs
       nil
       nix-melt
       nix-output-monitor
@@ -16,20 +17,11 @@
       self'.packages.nix-fast-build
       statix
 
-      # Lua
-      stylua
-      (luajit.withPackages (p: with p; [ luacheck ]))
-      lua-language-server
-
-      # Shell
-      shellcheck
-      shfmt
-
       # GitHub Actions
-      act
-      actionlint
-      python3Packages.pyflakes
-      shellcheck
+      # act
+      # actionlint
+      # python3Packages.pyflakes
+      # shellcheck
 
       # Misc
       jq

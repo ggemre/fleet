@@ -19,14 +19,9 @@
         darwin.follows = "darwin";
         home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
+        # systems.follows = "systems";
       };
     };
-
-    # base16-schemes = {
-    #   url = "github:tinted-theming/base16-schemes";
-    #   flake = false;
-    # };
 
     darwin = {
       url = "github:LnL7/nix-darwin";
@@ -51,13 +46,13 @@
 
     flake-utils = {
       url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
+      # inputs.systems.follows = "systems";
     };
 
-    gemoji = {
-      url = "github:github/gemoji";
-      flake = false;
-    };
+    # gemoji = {
+    #   url = "github:github/gemoji";
+    #   flake = false;
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -112,20 +107,20 @@
       };
     };
 
-    systems.url = "github:nix-systems/default";
+    # systems.url = "github:nix-systems/default";
 
     treefmt = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    truecolor-check = {
-      url = "git+https://gist.github.com/fdeaf79e921c2f413f44b6f613f6ad53.git";
-      flake = false;
-    };
+    # truecolor-check = {
+    #   url = "git+https://gist.github.com/fdeaf79e921c2f413f44b6f613f6ad53.git";
+    #   flake = false;
+    # };
   };
 
-  outputs = inputs@{ self, flake-parts, ... }:
+  outputs = inputs@{ self, flake-parts, agenix, ... }:
     flake-parts.lib.mkFlake { inherit inputs; }
       (toplevel@{ withSystem, ... }: {
         imports = [

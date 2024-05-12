@@ -4,7 +4,7 @@
     settings = {
       accept-flake-config = true;
       # XXX: Causes annoying "cannot link ... to ...: File exists" errors on Darwin
-      # auto-optimise-store = hostType == "nixos";
+      auto-optimise-store = hostType == "nixos";
       allowed-users = [ "@wheel" ];
       build-users-group = "nixbld";
       builders-use-substitutes = true;

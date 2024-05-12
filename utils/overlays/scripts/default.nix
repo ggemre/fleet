@@ -1,11 +1,5 @@
 final: _:
 let
-  emoji_json = final.__inputs.gemoji + "/db/emoji.json";
-  emoji_list = final.runCommandNoCC "emoji_list.txt"
-    { nativeBuildInputs = with final; [ jq gnused ]; } ''
-    jq -r '.[] | "\(.emoji) \t   \(.description)"' '${emoji_json}' | sed -e 's,\\t,\t,g' > $out
-  '';
-
   writeShellApp = args:
     let
       pname = args.name;
@@ -46,89 +40,5 @@ in
   checkart = writeShellApp {
     name = "checkart";
     inputs = with final; [ coreutils findutils ];
-  };
-
-  drunmenu-wayland = writeShellApp {
-    name = "drunmenu";
-    src = ./drunmenu-wayland.sh;
-    inputs = with final; [ gnused spawn wofi ];
-    execer = [
-      "cannot:${final.wofi}/bin/wofi"
-      # FIXME: This is a lie, but I don't know how to get resholve to relax
-      # otherwise
-      "cannot:${final.spawn}/bin/spawn"
-    ];
-  };
-
-  drunmenu-x11 = writeShellApp {
-    name = "drunmenu";
-    src = ./drunmenu-x11.sh;
-    inputs = with final; [ rofi spawn ];
-    execer = [
-      "cannot:${final.rofi}/bin/rofi"
-      # FIXME: This is a lie, but I don't know how to get resholve to relax
-      # otherwise
-      "cannot:${final.spawn}/bin/spawn"
-    ];
-  };
-
-  emojimenu-wayland = writeShellApp {
-    name = "emojimenu";
-    src = ./emojimenu-wayland.sh;
-    inputs = with final; [ coreutils wl-clipboard wofi ];
-    execer = [
-      "cannot:${final.wofi}/bin/wofi"
-      "cannot:${final.wl-clipboard}/bin/wl-copy"
-    ];
-    prologue = (final.writeText "export-emoji-list" ''
-      export emoji_list="${emoji_list}"
-    '').outPath;
-  };
-
-  emojimenu-x11 = writeShellApp {
-    name = "emojimenu";
-    src = ./emojimenu-x11.sh;
-    inputs = with final; [ coreutils rofi xclip ];
-    execer = [
-      "cannot:${final.rofi}/bin/rofi"
-      "cannot:${final.xclip}/bin/xclip"
-    ];
-    prologue = (final.writeText "export-emoji-list" ''
-      export emoji_list="${emoji_list}"
-    '').outPath;
-  };
-
-  fixart = writeShellApp {
-    name = "fixart";
-    inputs = with final; [ coreutils findutils ];
-    fake.external = [ "beet" ];
-  };
-
-  nix-closure-size = writeShellApp {
-    name = "nix-closure-size";
-    inputs = with final; [ coreutils gawk ];
-    fake.external = [ "nix-store" ];
-  };
-
-  screenocr = writeShellApp {
-    name = "screenocr";
-    inputs = with final; [ coreutils findutils grim slurp tesseract5 wl-clipboard ];
-    execer = [
-      "cannot:${final.tesseract5}/bin/tesseract"
-    ];
-  };
-
-  screenshot = writeShellApp {
-    name = "screenshot";
-    inputs = with final; [ grim slurp swappy ];
-    execer = [
-      "cannot:${final.swappy}/bin/swappy"
-    ];
-  };
-
-  spawn = writeShellApp {
-    name = "spawn";
-    inputs = with final; [ coreutils systemd util-linux ];
-    execer = [ "cannot:${final.systemd}/bin/systemd-run" ];
   };
 }
