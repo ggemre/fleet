@@ -40,6 +40,21 @@
     specialArgs = inputs;
     builders = import ./lib/builders.nix {inherit inputs nixpkgs darwin specialArgs;};
   in {
+    nixosConfigurations = {
+      test = builders.mkNixosSystem {
+        hostname = "test";
+        system = "x86_64-linux";
+        modules = [
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            # home-manager.users.gge = ./home/gge;
+          }
+        ];
+      };
+    };
     darwinConfigurations = {
       mre = builders.mkDarwinSystem {
         hostname = "mre";
@@ -49,6 +64,7 @@
           ./modules/nix-core.nix
 
           home-manager.darwinModules.home-manager
+          # TODO: move to /home/gge (keep modules clean & toplevel)
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
