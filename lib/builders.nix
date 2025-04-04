@@ -32,7 +32,7 @@
             home-manager.users.${user} = import ../home/${user};
           }
           specialArgs.home-manager.darwinModules.home-manager
-          (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; lib = nixpkgs.lib; })
+          (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; inherit (nixpkgs) lib; })
         ]
         ++ args.modules or [];
     };
@@ -61,7 +61,7 @@
           home-manager.users.${user} = import ../home/${user};
         }
         specialArgs.home-manager.nixosModules.home-manager
-        (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; lib = nixpkgs.lib; })
+        (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; inherit (nixpkgs) lib; })
       ]
       ++ args.modules or [];
     };

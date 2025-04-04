@@ -154,6 +154,9 @@
     pkgs.zsh
   ];
 
+  # NOTE: remove this after you reinstall nix & nix-darwin :)
+  ids.gids.nixbld = 30000;
+
   # Set your time zone.
   time.timeZone = "America/Denver";
 
