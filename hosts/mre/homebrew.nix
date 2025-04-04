@@ -22,6 +22,7 @@
     casks = [
       "arc"
       "zed"
+      "virtualbox"
     ];
   };
 }

@@ -9,6 +9,7 @@
     # utils
     ripgrep
     bat
+    just
   ];
 
   programs = {
