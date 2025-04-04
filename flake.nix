@@ -48,36 +48,24 @@
   in {
     nixosConfigurations = {
       test = builders.mkNixosSystem {
+        user = "gge";
         hostname = "test";
         system = "x86_64-linux";
         modules = [
-          ./hosts/test
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            # home-manager.users.gge = ./home/gge;
-          }
+          ./hosts/test # NOTE: do we want to move these to the builder? (i.e. will ./hosts/hostname always be imported?)
+          ./modules/nix-core.nix # NOTE: see above
+          disko.nixosModules.disko # NOTE: are we going to use disko for EVERY nixos host?
         ];
       };
     };
     darwinConfigurations = {
       mre = builders.mkDarwinSystem {
+        user = "gge";
         hostname = "mre";
         system = "x86_64-darwin";
         modules = [
-          ./hosts/mre
-          ./modules/nix-core.nix
-
-          home-manager.darwinModules.home-manager
-          # TODO: move to /home/gge (keep modules clean & toplevel)
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            # home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.gge = ./home/gge;
-          }
+          ./hosts/mre # NOTE: see above
+          ./modules/nix-core.nix # NOTE: see above
         ];
       };
     };

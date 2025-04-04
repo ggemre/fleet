@@ -1,9 +1,12 @@
 {
   lib,
+  system,
   ...
 }:
 let user = "gge";
-in {
+in
+    builtins.trace system
+{
   imports = [
     ./shell.nix
     ./core.nix

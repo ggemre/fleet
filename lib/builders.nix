@@ -9,6 +9,7 @@
   mkDarwinSystem = {
     modules,
     system,
+    user,
     hostname,
     ...
   } @ args:
@@ -24,6 +25,13 @@
               nixpkgs.hostPlatform = args.system;
             };
           }
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = specialArgs // { system = args.system; }; # NOTE: we're currently not using inputs in home-manager
+            home-manager.users.${user} = import ../home/${user};
+          }
+          specialArgs.home-manager.darwinModules.home-manager
         ]
         ++ args.modules or [];
     };
@@ -31,6 +39,7 @@
   mkNixosSystem = {
     modules,
     system,
+    user,
     hostname,
     ...
   } @ args:
@@ -44,6 +53,13 @@
             nixpkgs.hostPlatform = args.system;
           };
         }
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = specialArgs // { system = args.system; }; # NOTE: see above
+          home-manager.users.${user} = import ../home/${user};
+        }
+        specialArgs.home-manager.nixosModules.home-manager
       ]
       ++ args.modules or [];
     };
