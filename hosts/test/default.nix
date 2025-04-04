@@ -1,11 +1,10 @@
 {
   lib,
   pkgs,
+  user,
   ...
-}: let 
-  hostname = "mre"; 
-  user = "gge";
-in {
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix

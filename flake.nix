@@ -44,7 +44,7 @@
     ...
   }: let
     specialArgs = inputs;
-    builders = import ./lib/builders.nix {inherit inputs nixpkgs darwin specialArgs;};
+    builders = import ./lib/builders.nix { inherit inputs nixpkgs darwin specialArgs; };
   in {
     nixosConfigurations = {
       test = builders.mkNixosSystem {
@@ -52,7 +52,6 @@
         hostname = "test";
         system = "x86_64-linux";
         modules = [
-          ./hosts/test # NOTE: do we want to move these to the builder? (i.e. will ./hosts/hostname always be imported?)
           ./modules/nix-core.nix # NOTE: see above
           disko.nixosModules.disko # NOTE: are we going to use disko for EVERY nixos host?
         ];
@@ -64,7 +63,6 @@
         hostname = "mre";
         system = "x86_64-darwin";
         modules = [
-          ./hosts/mre # NOTE: see above
           ./modules/nix-core.nix # NOTE: see above
         ];
       };

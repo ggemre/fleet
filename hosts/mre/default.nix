@@ -1,11 +1,10 @@
 {
   lib,
   pkgs,
+  user,
   ...
-}: let 
-  hostname = "mre"; 
-  user = "gge";
-in {
+}:
+{
   imports = [
     ./system.nix
     ./homebrew.nix
