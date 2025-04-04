@@ -28,6 +28,11 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -35,6 +40,7 @@
     nixpkgs,
     darwin,
     home-manager,
+    disko,
     ...
   }: let
     specialArgs = inputs;
@@ -45,7 +51,8 @@
         hostname = "test";
         system = "x86_64-linux";
         modules = [
-
+          ./hosts/test
+          disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
