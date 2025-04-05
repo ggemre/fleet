@@ -35,7 +35,8 @@
           specialArgs.home-manager.darwinModules.home-manager
           (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; inherit (nixpkgs) lib; })
 
-          ../modules/nix-core.nix
+          ../modules/common
+          ../modules/darwin
         ]
         ++ args.modules or [];
     };
@@ -67,7 +68,7 @@
         specialArgs.home-manager.nixosModules.home-manager
         (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; inherit (nixpkgs) lib; })
 
-        ../modules/nix-core.nix
+        ../modules/common
         specialArgs.disko.nixosModules.disko
       ]
       ++ args.modules or [];

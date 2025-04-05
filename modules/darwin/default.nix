@@ -1,0 +1,8 @@
+{
+  ...
+}:
+{
+  imports = [
+    ./homebrew-mirror.nix
+  ];
+}
