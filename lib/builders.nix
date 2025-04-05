@@ -13,6 +13,17 @@
     hostname,
     ...
   } @ args:
+  let
+    allowedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
+  in
+
+  assert builtins.elem system allowedSystems
+    || throw ''
+    Invalid system: "${system}"
+    Allowed systems are:
+      ${builtins.concatStringsSep "\n    " allowedSystems}
+    '';
+
     darwin.lib.darwinSystem {
       inherit specialArgs;
       modules =
@@ -48,6 +59,17 @@
     hostname,
     ...
   } @ args:
+  let
+    allowedSystems = [ "x86_64-linux" "aarch64-linux" ];
+  in
+
+  assert builtins.elem system allowedSystems
+    || throw ''
+    Invalid system: "${system}"
+    Allowed systems are:
+      ${builtins.concatStringsSep "\n    " allowedSystems}
+    '';
+
     nixpkgs.lib.nixosSystem {
       inherit specialArgs;
       modules =
