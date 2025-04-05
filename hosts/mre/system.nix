@@ -1,14 +1,8 @@
 {pkgs, ...}:
-###################################################################################
-#
-#  macOS's System configuration
-#
-#  All the configuration options are documented here:
-#    https://daiderd.com/nix-darwin/manual/index.html#sec-options
-#  Incomplete list of macOS `defaults` commands :
-#    https://github.com/yannbertrand/macos-defaults
-#
-###################################################################################
+# Credit: https://github.com/ryan4yin/nix-darwin-kickstarter
+# Thank you @ryan4yin for the awesome template that inspired this file!
+# All options: https://daiderd.com/nix-darwin/manual/index.html#sec-options
+# MacOS option defaults: https://github.com/yannbertrand/macos-defaults
 {
   system = {
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
@@ -17,7 +11,6 @@
     '';
 
     defaults = {
-      # customize dock
       dock = {
         autohide = false;
         show-recents = true;
@@ -35,7 +28,6 @@
         wvous-tr-corner = 1;
       };
 
-      # customize finder
       finder = {
         _FXShowPosixPathInTitle = true;
         AppleShowAllExtensions = true;
@@ -47,7 +39,6 @@
         ShowStatusBar = true;
       };
 
-      # customize trackpad
       trackpad = {
         Clicking = true;
         TrackpadRightClick = true;
@@ -55,8 +46,6 @@
       };
 
       # customize settings that not supported by nix-darwin directly
-      # Incomplete list of macOS `defaults` commands :
-      #   https://github.com/yannbertrand/macos-defaults
       NSGlobalDomain = {
         NSAutomaticWindowAnimationsEnabled = false;
         NSDocumentSaveNewDocumentsToCloud = false;
@@ -135,7 +124,7 @@
       };
 
       loginwindow = {
-        GuestEnabled = false; # disable guest user
+        GuestEnabled = false;
         SHOWFULLNAME = false; # login with username prefilled
       };
     };
@@ -144,6 +133,7 @@
       enableKeyMapping = true;
     };
 
+    # No need to change this https://mynixos.com/nix-darwin/option/system.stateVersion
     stateVersion = 6;
   };
 
@@ -157,10 +147,8 @@
   # NOTE: remove this after you reinstall nix & nix-darwin :)
   ids.gids.nixbld = 30000;
 
-  # Set your time zone.
   time.timeZone = "America/Denver";
 
-  # Fonts
   fonts = {
     packages = with pkgs; [
       material-design-icons

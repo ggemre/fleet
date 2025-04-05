@@ -1,5 +1,6 @@
 {lib, ...}: let
-  # Homebrew Mirror
+  # Credit: https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo/modules/homebrew-mirror.nix
+  # Thanks @ryan4yin for the great templates from which I developed this file
   homebrew_mirror_env = {
     HOMEBREW_API_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api";
     HOMEBREW_BOTTLE_DOMAIN = "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles";
@@ -8,7 +9,6 @@
     HOMEBREW_PIP_INDEX_URL = "https://pypi.tuna.tsinghua.edu.cn/simple";
   };
 in {
-  # Set variables for you to manually install homebrew packages.
   environment.variables = homebrew_mirror_env;
 
   # Set environment variables for nix-darwin before run `brew bundle`.
