@@ -45,7 +45,8 @@
   }: let
     specialArgs = inputs;
     builders = import ./lib/builders.nix { inherit inputs nixpkgs darwin specialArgs; };
-    shells = import ./lib/shells.nix { inherit nixpkgs; };
+    homes = import ./lib/home.nix { inherit nixpkgs home-manager; };
+    shell = import ./lib/shell.nix { inherit nixpkgs; };
   in {
 
     nixosConfigurations = {
@@ -64,7 +65,14 @@
       };
     };
 
-    devShells = shells.mkShells {
+    homeConfigurations = {
+      gge = homes.mkHome {
+        user = "gge";
+        system = "x86-64-linnux";
+      };
+    };
+ 
+    devShells = shell.mkShells {
       packages = [ "statix" "just" ];
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     };
