@@ -23,7 +23,7 @@ build host:
 [doc('Build {{host}} to `./result`')]
 [group('build')]
 build host:
-  darwin-rebuild build--flake .#{{host}}
+  darwin-rebuild build --flake .#{{host}}
 
 [doc('Update all inputs (i.e. recreate the lock file from scratch)')]
 [group('flake')]
