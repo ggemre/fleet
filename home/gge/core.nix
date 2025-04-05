@@ -17,7 +17,7 @@
     eza = {
       enable = true;
       git = true;
-      icons = false;
+      icons = null;
     };
   };
 }
