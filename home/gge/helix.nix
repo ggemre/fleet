@@ -3,7 +3,6 @@ _: {
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "catppuccin_mocha";
       keys.normal = {
         j = "move_char_left";
         k = "move_visual_line_down";

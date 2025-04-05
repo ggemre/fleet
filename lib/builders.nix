@@ -11,6 +11,7 @@
     system,
     user,
     hostname,
+    theme ? "catppuccin-mocha",
     ...
   } @ args:
   let
@@ -48,6 +49,14 @@
 
           ../modules/common
           ../modules/darwin
+
+          {
+            stylix = {
+              enable = true;
+              base16Scheme = ../theme/${theme}.yaml;
+            };
+          }
+          specialArgs.stylix.darwinModules.stylix
         ]
         ++ args.modules or [];
     };
@@ -57,6 +66,7 @@
     system,
     user,
     hostname,
+    theme ? "catppuccin-mocha",
     ...
   } @ args:
   let
@@ -92,6 +102,14 @@
 
         ../modules/common
         specialArgs.disko.nixosModules.disko
+
+        {
+          stylix = {
+            enable = true;
+            base16Scheme = ../theme/${theme}.yaml;
+          };
+        }
+        specialArgs.stylix.nixosModules.stylix
       ]
       ++ args.modules or [];
     };

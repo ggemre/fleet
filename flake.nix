@@ -33,6 +33,8 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = inputs @ {
@@ -52,6 +54,7 @@
         user = "gge";
         hostname = "test";
         system = "x86_64-linux";
+        theme = "catppuccin-mocha";
       };
     };
 
@@ -60,6 +63,7 @@
         user = "gge";
         hostname = "mre";
         system = "x86_64-darwin";
+        theme = "rose-pine";
       };
     };
 
