@@ -1,25 +1,53 @@
-mre:
-  nix build .#darwinConfigurations.mre.system \
-    --extra-experimental-features 'nix-command flakes'
+default:
+  just --list
 
-  ./result/sw/bin/darwin-rebuild switch --flake .#mre
+[linux]
+[doc('Rebuild, activate, and boot list {{host}}')]
+[group('build')]
+switch host:
+  nixos-rebuild switch --flake .#{{host}}
 
+[macos]
+[doc('Rebuild, activate, and boot list {{host}}')]
+[group('build')]
+switch host:
+  darwin-rebuild switch --flake .#{{host}}
+
+[linux]
+[doc('Build {{host}} to `./result`')]
+[group('build')]
+build host:
+  nixos-rebuild build --flake .#{{host}}
+
+[macos]
+[doc('Build {{host}} to `./result`')]
+[group('build')]
+build host:
+  darwin-rebuild build--flake .#{{host}}
+
+[doc('Update all inputs (i.e. recreate the lock file from scratch)')]
+[group('flake')]
 update:
   nix flake update
 
+[doc('Format the nix files in this repo')]
+[group('flake')]
+fmt:
+  nix fmt
+
+[doc('Remove the symlinked build output at `./result`')]
+[group('flake')]
+clean:
+  rm -rf result
+
+[doc('Show all versions of the current profile')]
+[group('system')]
 history:
   nix profile history --profile /nix/var/nix/profiles/system
 
+[doc('Remove week old generations and remove unused `/nix/store` entries')]
+[group('system')]
 gc:
-  # remove all generations older than 7 days
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
-
-  # garbage collect all unused nix store entries
   sudo nix store gc --debug
 
-fmt:
-  # format the nix files in this repo
-  nix fmt
-
-clean:
-  rm -rf result
