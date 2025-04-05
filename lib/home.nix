@@ -18,7 +18,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = specialArgs // { inherit (args) system; }; # NOTE: we're currently not using inputs in home-manager
+          home-manager.extraSpecialArgs = specialArgs // { inherit (args) system; };
           home-manager.users.${user} = import ../home/${user};
         }
       ]
