@@ -36,11 +36,9 @@
   };
 
   outputs = inputs @ {
-    self,
     nixpkgs,
     darwin,
     home-manager,
-    disko,
     ...
   }: let
     specialArgs = inputs;
@@ -73,7 +71,7 @@
     };
  
     devShells = shell.mkShells {
-      packages = [ "statix" "just" ];
+      packages = [ "statix" "just" "deadnix" "alejandra" ];
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
     };
   };

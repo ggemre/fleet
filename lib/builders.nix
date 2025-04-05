@@ -98,7 +98,6 @@
 
   mkNixosIso = {
     modules,
-    system,
     hostname,
     ...
   } @ args:
