@@ -7,7 +7,6 @@
 {
   mkHome =
     {
-      hostname,
       user,
       system,
       modules ? [],
@@ -15,10 +14,14 @@
     } @args:
     home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      extraSpecialArgs = specialArgs // { inherit (args) system; }; # NOTE: we're currently not using inputs in home-manager
-      users.${user} = import ../home/${user};
-      modules = args.modules or [];
+      modules = [
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = specialArgs // { inherit (args) system; }; # NOTE: we're currently not using inputs in home-manager
+          home-manager.users.${user} = import ../home/${user};
+        }
+      ]
+      ++ args.modules or [];
     };
 }

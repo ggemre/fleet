@@ -45,7 +45,7 @@
   }: let
     specialArgs = inputs;
     builders = import ./lib/builders.nix { inherit inputs nixpkgs darwin specialArgs; };
-    homes = import ./lib/home.nix { inherit nixpkgs home-manager; };
+    homes = import ./lib/home.nix { inherit nixpkgs home-manager specialArgs; };
     shell = import ./lib/shell.nix { inherit nixpkgs; };
   in {
 
