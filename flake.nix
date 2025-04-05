@@ -68,7 +68,7 @@
     homeConfigurations = {
       gge = homes.mkHome {
         user = "gge";
-        system = "x86-64-linnux";
+        system = "x86_64-linux";
       };
     };
  
