@@ -21,7 +21,7 @@
     || throw ''
     Invalid system: "${system}"
     Allowed systems are:
-      ${builtins.concatStringsSep "\n    " allowedSystems}
+      ${builtins.concatStringsSep "\n  " allowedSystems}
     '';
 
     darwin.lib.darwinSystem {
@@ -67,7 +67,7 @@
     || throw ''
     Invalid system: "${system}"
     Allowed systems are:
-      ${builtins.concatStringsSep "\n    " allowedSystems}
+      ${builtins.concatStringsSep "\n  " allowedSystems}
     '';
 
     nixpkgs.lib.nixosSystem {
