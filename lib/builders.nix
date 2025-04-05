@@ -7,7 +7,7 @@
 }:
 {
   mkDarwinSystem = {
-    modules,
+    modules ? [],
     system,
     user,
     hostname,
@@ -25,6 +25,7 @@
               nixpkgs.hostPlatform = args.system;
             };
           }
+
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -33,12 +34,14 @@
           }
           specialArgs.home-manager.darwinModules.home-manager
           (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; inherit (nixpkgs) lib; })
+
+          ../modules/nix-core.nix
         ]
         ++ args.modules or [];
     };
 
   mkNixosSystem = {
-    modules,
+    modules ? [],
     system,
     user,
     hostname,
@@ -54,6 +57,7 @@
             nixpkgs.hostPlatform = args.system;
           };
         }
+
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -62,6 +66,9 @@
         }
         specialArgs.home-manager.nixosModules.home-manager
         (import ../hosts/${hostname} { inherit user; pkgs = import nixpkgs { inherit (args) system; }; inherit (nixpkgs) lib; })
+
+        ../modules/nix-core.nix
+        specialArgs.disko.nixosModules.disko
       ]
       ++ args.modules or [];
     };

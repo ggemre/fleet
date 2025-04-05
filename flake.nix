@@ -51,10 +51,6 @@
         user = "gge";
         hostname = "test";
         system = "x86_64-linux";
-        modules = [
-          ./modules/nix-core.nix # NOTE: see above
-          disko.nixosModules.disko # NOTE: are we going to use disko for EVERY nixos host?
-        ];
       };
     };
     darwinConfigurations = {
@@ -62,9 +58,6 @@
         user = "gge";
         hostname = "mre";
         system = "x86_64-darwin";
-        modules = [
-          ./modules/nix-core.nix # NOTE: see above
-        ];
       };
     };
   };
