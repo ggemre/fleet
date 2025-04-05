@@ -46,6 +46,12 @@ fmt:
 clean:
   rm -rf result
 
+[linux, macos]
+[doc('Open a shell for developing this flake')]
+[group('flake')]
+shell:
+  nix develop -c $SHELL
+
 [doc('Show all versions of the current profile')]
 [group('system')]
 history:
