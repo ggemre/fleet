@@ -34,6 +34,7 @@
   };
 
   outputs = inputs @ {
+    self,
     nixpkgs,
     darwin,
     home-manager,
@@ -44,6 +45,7 @@
     builders = import ./lib/builders.nix {inherit inputs nixpkgs darwin specialArgs;};
     home = import ./lib/home.nix {inherit nixpkgs home-manager specialArgs;};
     shell = import ./lib/shell.nix {inherit nixpkgs;};
+    pkgsHelper = import ./lib/pkgs.nix {inherit nixpkgs;};
   in {
     nixosConfigurations = {
       test = builders.mkNixosSystem {
@@ -70,18 +72,31 @@
       };
     };
 
-    devShells = utils.forAllSystems (system:
-      shell.mkShell {
-        inherit system;
-        packages = [
-          "alejandra"
-          "statix"
-          "just"
-          "deadnix"
-          "nixd"
-        ];
-      });
+    devShells = utils.forAllSystems (
+      system:
+        shell.mkShell {
+          inherit system;
+
+          packages = [
+            "alejandra"
+            "statix"
+            "just"
+            "deadnix"
+            "nixd"
+          ];
+
+          internalPackages = [
+            self.packages.${system}.hostnamegen
+          ];
+        }
+    );
 
     formatter = utils.forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    packages = utils.forAllSystems (system: let
+      internalPkgs = pkgsHelper {inherit system;};
+    in {
+      hostnamegen = internalPkgs.hostnamegen;
+    });
   };
 }
