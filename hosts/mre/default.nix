@@ -2,8 +2,7 @@
   pkgs,
   user,
   ...
-}:
-{
+}: {
   imports = [
     ./system.nix
     ./homebrew.nix

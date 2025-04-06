@@ -2,8 +2,7 @@
   pkgs,
   user,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
@@ -14,7 +13,7 @@
     description = user;
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = ["wheel" "networkmanager"];
   };
 
   programs.zsh.enable = true;

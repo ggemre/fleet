@@ -40,12 +40,11 @@
     ...
   }: let
     specialArgs = inputs;
-    utils = import ./lib/utils.nix { inherit nixpkgs; };
-    builders = import ./lib/builders.nix { inherit inputs nixpkgs darwin specialArgs; };
-    home = import ./lib/home.nix { inherit nixpkgs home-manager specialArgs; };
-    shell = import ./lib/shell.nix { inherit nixpkgs; };
+    utils = import ./lib/utils.nix {inherit nixpkgs;};
+    builders = import ./lib/builders.nix {inherit inputs nixpkgs darwin specialArgs;};
+    home = import ./lib/home.nix {inherit nixpkgs home-manager specialArgs;};
+    shell = import ./lib/shell.nix {inherit nixpkgs;};
   in {
-
     nixosConfigurations = {
       test = builders.mkNixosSystem {
         user = "gge";
@@ -70,16 +69,18 @@
         system = "x86_64-linux";
       };
     };
- 
-    devShells = utils.forAllSystems (system: shell.mkShell {
-      inherit system;
-      packages = [
-        "statix"
-        "just"
-        "deadnix"
-        "nixd"
-      ];
-    });
+
+    devShells = utils.forAllSystems (system:
+      shell.mkShell {
+        inherit system;
+        packages = [
+          "alejandra"
+          "statix"
+          "just"
+          "deadnix"
+          "nixd"
+        ];
+      });
 
     formatter = utils.forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
   };

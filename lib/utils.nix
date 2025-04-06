@@ -1,5 +1,4 @@
-{ nixpkgs }:
-let
+{nixpkgs}: let
   systems = [
     "aarch64-linux"
     "x86_64-linux"
@@ -7,7 +6,6 @@ let
     "x86_64-darwin"
   ];
   forAllSystems = nixpkgs.lib.genAttrs systems;
-in
-{
+in {
   inherit forAllSystems;
 }

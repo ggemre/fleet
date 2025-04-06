@@ -2,12 +2,12 @@
   lib,
   system,
   ...
-}:
-let
+}: let
   user = "gge";
-  homeDir = if lib.strings.hasSuffix "darwin" system
-            then "/Users/${user}" # nix-darwin home directory
-            else "/home/${user}"; # nixos home directory
+  homeDir =
+    if lib.strings.hasSuffix "darwin" system
+    then "/Users/${user}" # nix-darwin home directory
+    else "/home/${user}"; # nixos home directory
 in {
   imports = [
     ./shell.nix

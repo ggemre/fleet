@@ -1,5 +1,5 @@
 [[language]]
-# auto-format = true
-# formatter.command = "alejandra"
+auto-format = true
+formatter.command = "alejandra"
 language-servers = ["nixd"]
 name = "nix"
