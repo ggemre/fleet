@@ -73,7 +73,12 @@
  
     devShells = utils.forAllSystems (system: shell.mkShell {
       inherit system;
-      packages = [ "statix" "just" "deadnix" ];
+      packages = [
+        "statix"
+        "just"
+        "deadnix"
+        "nixd"
+      ];
     });
 
     formatter = utils.forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
