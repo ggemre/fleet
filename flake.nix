@@ -1,5 +1,5 @@
 {
-  description = "TODO: write a description";
+  description = "Nix flake to configure my entire \"fleet\" of systems.";
 
   nixConfig = {
     extra-substituters = [
