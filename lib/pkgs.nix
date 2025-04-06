@@ -1,13 +1,13 @@
 {nixpkgs}: {system}: let
   pkgs = import nixpkgs {inherit system;};
 in {
-  hostnamegen = pkgs.writeShellApplication {
-    name = "hostnamegen";
+  mkhostname = pkgs.writeShellApplication {
+    name = "mkhostname";
 
     runtimeInputs = with pkgs; [
       gum
     ];
 
-    text = builtins.readFile ../pkgs/hostname_gen.sh;
+    text = builtins.readFile ../pkgs/mkhostname.sh;
   };
 }

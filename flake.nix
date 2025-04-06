@@ -88,7 +88,7 @@
           ];
 
           internalPackages = [
-            self.packages.${system}.hostnamegen
+            self.packages.${system}.mkhostname
           ];
         }
     );
@@ -98,7 +98,7 @@
     packages = utils.forAllSystems (system: let
       internalPkgs = pkgsHelper {inherit system;};
     in {
-      hostnamegen = internalPkgs.hostnamegen;
+      mkhostname = internalPkgs.mkhostname;
     });
   };
 }
