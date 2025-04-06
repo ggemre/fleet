@@ -10,7 +10,7 @@
       user,
       system,
       modules ? [],
-      theme ? "catppuccin-mocha"
+      theme ? "catppuccin-mocha",
       ...
     } @args:
     home-manager.lib.homeManagerConfiguration {
