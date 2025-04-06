@@ -3,3 +3,14 @@ auto-format = true
 formatter.command = "alejandra"
 language-servers = ["nixd"]
 name = "nix"
+
+[[language]]
+auto-format = true
+file-types = ["sh", "bash"]
+formatter = { command = "shfmt", args = ["-i", "2"] }
+language-servers = [ "bash-language-server" ]
+name = "bash"
+
+[language-server.bash-language-server]
+command = "bash-language-server"
+args = ["start"]

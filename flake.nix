@@ -83,6 +83,8 @@
             "just"
             "deadnix"
             "nixd"
+            "bash-language-server"
+            "shfmt"
           ];
 
           internalPackages = [
