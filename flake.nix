@@ -50,7 +50,7 @@
     nixosConfigurations = {
       test = builders.mkNixosSystem {
         user = "gge";
-        hostname = "test";
+        hostname = "nix-wrk-0404";
         system = "x86_64-linux";
         theme = "catppuccin-mocha";
       };
@@ -59,7 +59,7 @@
     darwinConfigurations = {
       mre = builders.mkDarwinSystem {
         user = "gge";
-        hostname = "mre";
+        hostname = "dwn-wrk-0331";
         system = "x86_64-darwin";
         theme = "rose-pine";
       };
