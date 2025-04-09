@@ -98,7 +98,7 @@
     packages = utils.forAllSystems (system: let
       internalPkgs = pkgsHelper {inherit system;};
     in {
-      mkhostname = internalPkgs.mkhostname;
+      inherit (internalPkgs) mkhostname;
     });
   };
 }
