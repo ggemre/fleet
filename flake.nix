@@ -54,6 +54,11 @@
         system = "x86_64-linux";
         theme = "catppuccin-mocha";
       };
+
+      iso1 = builders.mkNixosIso {
+        hostname = "nix-iso-0409";
+        system = "x86_64-linux";
+      };
     };
 
     darwinConfigurations = {
