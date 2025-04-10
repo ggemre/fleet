@@ -31,6 +31,12 @@ build host:
 build host:
   darwin-rebuild build --flake .#{{host}}
 
+[linux, macos]
+[doc('Build an iso to ./result/iso')]
+[group('build')]
+iso image:
+  nix build .#nixosConfigurations.{{image}}.config.system.build.isoImage # this took 38mins on my MacBook Air, leave this cmd to the GitHub runners PLEASE
+
 [doc('Update all inputs (i.e. recreate the lock file from scratch)')]
 [group('flake')]
 update:

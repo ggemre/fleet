@@ -3,15 +3,13 @@
   lib,
   ...
 }: {
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    settings.experimental-features = ["nix-command" "flakes"];
     package = pkgs.nix;
     gc = {
-      automatic = lib.mkDefault true;
-      options = lib.mkDefault "--delete-older-than 7d";
+      automatic = true;
+      options = "--delete-older-than 7d";
     };
   };
 
@@ -31,5 +29,8 @@
     #   https://github.com/NixOS/nix/issues/7273
     # "error: cannot link '/nix/store/.tmp-link-xxxxx-xxxxx' to '/nix/store/.links/xxxx': File exists"
     auto-optimise-store = false;
+
+    experimental-features = ["nix-command" "flakes"];
+    trusted-users = [ "@wheel" ];
   };
 }

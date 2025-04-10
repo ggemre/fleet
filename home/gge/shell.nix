@@ -15,8 +15,8 @@ _: {
     #   NIX_PATH = "$HOME/.nix-defexpr/channels";
     # };
 
-    initExtra = ''
-      eval "$(direnv hook zsh)"
-    '';
+    # initExtra = ''
+    #   eval "$(direnv hook zsh)"
+    # '';
   };
 }

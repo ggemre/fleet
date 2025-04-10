@@ -14,9 +14,11 @@ in {
     ./core.nix
     ./git.nix
     ./starship.nix
+    # ./ghostty.nix
     ./kitty.nix
     ./helix.nix
-    ./direnv.nix
+    # ./direnv.nix
+    ./yazi.nix
   ];
 
   home = {
