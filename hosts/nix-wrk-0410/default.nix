@@ -17,7 +17,6 @@
   };
 
   programs.zsh.enable = true;
-  networking.networkmanager.enable = true;
 
   # Most users should never change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.
