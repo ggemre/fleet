@@ -5,13 +5,13 @@ default:
 [doc('Activate {{host}} without adding to boot list')]
 [group('build')]
 test host:
-  nixos-rebuild test --flake .#{{host}}
+  sudo nixos-rebuild test --flake .#{{host}}
 
 [linux]
 [doc('Rebuild, activate, and boot list {{host}}')]
 [group('build')]
 switch host:
-  nixos-rebuild switch --flake .#{{host}}
+  sudo nixos-rebuild switch --flake .#{{host}}
 
 [macos]
 [doc('Rebuild, activate, and boot list {{host}}')]

@@ -10,6 +10,10 @@
     ripgrep
     bat
     just
+
+    # macbook
+    brightnessctl
+    alsa-utils
   ];
 
   programs = {

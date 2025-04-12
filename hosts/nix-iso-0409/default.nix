@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # imports = [];
 
   environment.systemPackages = with pkgs; [
@@ -17,4 +14,3 @@
   # https://mynixos.com/nixpkgs/option/system.stateVersion
   system.stateVersion = "24.11";
 }
-

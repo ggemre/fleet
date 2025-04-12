@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   nix = {
@@ -31,6 +27,6 @@
     auto-optimise-store = false;
 
     experimental-features = ["nix-command" "flakes"];
-    trusted-users = [ "@wheel" ];
+    trusted-users = ["@wheel"];
   };
 }

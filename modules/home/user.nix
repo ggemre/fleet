@@ -1,29 +1,17 @@
 {
   lib,
+  user,
   system,
   ...
 }: let
-  user = "gge";
   homeDir =
     if lib.strings.hasSuffix "darwin" system
     then "/Users/${user}" # nix-darwin home directory
     else "/home/${user}"; # nixos home directory
 in {
-  imports = [
-    ./shell.nix
-    ./core.nix
-    ./git.nix
-    ./starship.nix
-    # ./ghostty.nix
-    ./kitty.nix
-    ./helix.nix
-    # ./direnv.nix
-    ./yazi.nix
-  ];
-
   home = {
     username = user;
-    homeDirectory = lib.mkForce homeDir; # We mkForce to override users.users.${user}.home since this one has system check
+    homeDirectory = homeDir;
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage

@@ -6,7 +6,6 @@
   ...
 }: {
   mkDarwinSystem = {
-    modules ? [],
     system,
     user,
     hostname,
@@ -14,6 +13,7 @@
     ...
   } @ args: let
     allowedSystems = ["x86_64-darwin" "aarch64-darwin"];
+    pkgs = import nixpkgs {inherit (args) system;};
   in
     assert builtins.elem system allowedSystems
     || throw ''
@@ -23,46 +23,44 @@
     '';
       darwin.lib.darwinSystem {
         inherit specialArgs;
-        modules =
-          [
-            {
-              config = {
-                networking.hostName = args.hostname;
-                networking.computerName = args.hostname;
-                system.defaults.smb.NetBIOSName = args.hostname;
-                nixpkgs.hostPlatform = args.system;
-              };
-            }
+        modules = [
+          {
+            config = {
+              networking.hostName = args.hostname;
+              networking.computerName = args.hostname;
+              system.defaults.smb.NetBIOSName = args.hostname;
+              nixpkgs.hostPlatform = args.system;
+            };
+          }
 
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = specialArgs // {inherit (args) system;};
-              home-manager.users.${user} = import ../home/${user};
-            }
-            specialArgs.home-manager.darwinModules.home-manager
-            (import ../hosts/${hostname} {
-              inherit user;
-              pkgs = import nixpkgs {inherit (args) system;};
-              inherit (nixpkgs) lib;
-            })
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = specialArgs // {inherit (args) system;};
+            home-manager.users.${args.user} = import (../home + "/${args.user}@${args.hostname}");
+            home-manager.backupFileExtension = "backup";
+          }
+          specialArgs.home-manager.darwinModules.home-manager
+          (import ../hosts/${hostname} {
+            inherit user;
+            inherit pkgs;
+            inherit (nixpkgs) lib;
+          })
 
-            ../modules/common
-            ../modules/darwin
+          ../modules/common
+          ../modules/darwin
 
-            {
-              stylix = {
-                enable = true;
-                base16Scheme = ../theme/${theme}.yaml;
-              };
-            }
-            specialArgs.stylix.darwinModules.stylix
-          ]
-          ++ args.modules or [];
+          {
+            stylix = {
+              enable = true;
+              base16Scheme = ../theme/${theme}.yaml;
+            };
+          }
+          specialArgs.stylix.darwinModules.stylix
+        ];
       };
 
   mkNixosSystem = {
-    modules ? [],
     system,
     user,
     hostname,
@@ -70,6 +68,7 @@
     ...
   } @ args: let
     allowedSystems = ["x86_64-linux" "aarch64-linux"];
+    pkgs = import nixpkgs {inherit (args) system;};
   in
     assert builtins.elem system allowedSystems
     || throw ''
@@ -79,40 +78,47 @@
     '';
       nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        modules =
-          [
-            {
-              config = {
-                networking.hostName = args.hostname;
-                nixpkgs.hostPlatform = args.system;
+        modules = [
+          {
+            config = {
+              networking.hostName = args.hostname;
+              nixpkgs.hostPlatform = args.system;
+            };
+          }
+
+          {
+            # TODO: move to modules/home
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = specialArgs // {inherit (args) system;};
+            home-manager.users.${args.user} = import (../home + "/${args.user}@${args.hostname}");
+            home-manager.backupFileExtension = "backup";
+          }
+          specialArgs.home-manager.nixosModules.home-manager
+          (import ../hosts/${hostname} {
+            inherit user;
+            inherit pkgs;
+            inherit (nixpkgs) lib;
+          })
+
+          ../modules/common
+          specialArgs.disko.nixosModules.disko
+
+          {
+            stylix = {
+              # TODO: we should move this stuff out somewhere
+              enable = true;
+              base16Scheme = ../theme/${theme}.yaml;
+              fonts = {
+                sansSerif = {
+                  package = pkgs.fira-code;
+                  name = "Fira Code";
+                };
               };
-            }
-
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = specialArgs // {inherit (args) system;};
-              home-manager.users.${user} = import ../home/${user};
-            }
-            specialArgs.home-manager.nixosModules.home-manager
-            (import ../hosts/${hostname} {
-              inherit user;
-              pkgs = import nixpkgs {inherit (args) system;};
-              inherit (nixpkgs) lib;
-            })
-
-            ../modules/common
-            specialArgs.disko.nixosModules.disko
-
-            {
-              stylix = {
-                enable = true;
-                base16Scheme = ../theme/${theme}.yaml;
-              };
-            }
-            specialArgs.stylix.nixosModules.stylix
-          ]
-          ++ args.modules or [];
+            };
+          }
+          specialArgs.stylix.nixosModules.stylix
+        ];
       };
 
   mkNixosIso = {

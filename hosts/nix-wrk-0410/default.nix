@@ -6,6 +6,8 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
+
+    ../../modules/nixos
   ];
 
   users.users."${user}" = {
@@ -17,6 +19,33 @@
   };
 
   programs.zsh.enable = true;
+
+  time.timeZone = "America/Denver";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+  services.logind.extraConfig = ''
+    HandlePowerKey=ignore
+  '';
+
+  fonts = {
+    packages = with pkgs; [
+      dejavu_fonts
+      material-design-icons
+      font-awesome
+      fira-code
+      fira-code-symbols
+    ];
+  };
 
   # Most users should never change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.

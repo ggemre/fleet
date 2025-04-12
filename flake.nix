@@ -31,6 +31,8 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    schizofox.url = "github:schizofox/schizofox";
   };
 
   outputs = inputs @ {
@@ -60,9 +62,6 @@
         hostname = "nix-wrk-0410";
         system = "x86_64-linux";
         theme = "catppuccin-mocha";
-        modules = [
-          ./modules/graphical/hypr
-        ];
       };
 
       iso1 = builders.mkNixosIso {
