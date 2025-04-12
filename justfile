@@ -45,7 +45,7 @@ update:
 [doc('Format the nix files in this repo')]
 [group('flake')]
 fmt:
-  nix fmt
+  nix fmt .
 
 [doc('Remove the symlinked build output at `./result`')]
 [group('flake')]

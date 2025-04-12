@@ -40,10 +40,11 @@
   fonts = {
     packages = with pkgs; [
       dejavu_fonts
-      material-design-icons
-      font-awesome
-      fira-code
-      fira-code-symbols
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      nerd-fonts.fira-code
+      nerd-fonts.symbols-only
     ];
   };
 

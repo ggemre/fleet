@@ -144,17 +144,16 @@
     pkgs.zsh
   ];
 
-  # NOTE: remove this after you reinstall nix & nix-darwin :)
-  ids.gids.nixbld = 30000;
-
   time.timeZone = "America/Denver";
 
   fonts = {
     packages = with pkgs; [
-      material-design-icons
-      font-awesome
-      fira-code
-      fira-code-symbols
+      dejavu_fonts
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      nerd-fonts.fira-code
+      nerd-fonts.symbols-only
     ];
   };
 }

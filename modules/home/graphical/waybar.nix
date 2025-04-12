@@ -1,4 +1,6 @@
 {config, ...}: {
+  stylix.targets.waybar.enable = false;
+
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -99,8 +101,8 @@
     style = ''
       * {
       	  border: none;
-      	  font-family: ${config.stylix.fonts.sansSerif.name};
-      	  font-size: 11px;
+          font-family: "${config.stylix.fonts.monospace.name}";
+      	  font-size: 12px;
       	  font-weight: 400;
           padding: 0px 0px 0px 0px;
         }
