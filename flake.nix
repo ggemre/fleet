@@ -61,7 +61,7 @@
         user = "gge";
         hostname = "nix-wrk-0410";
         system = "x86_64-linux";
-        theme = "catppuccin-mocha";
+        theme = "rose-pine";
       };
 
       iso1 = builders.mkNixosIso {

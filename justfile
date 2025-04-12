@@ -68,4 +68,5 @@ history:
 gc:
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
   sudo nix store gc --debug
+  sudo /run/current-system/bin/switch-to-configuration boot # update boot menu
 

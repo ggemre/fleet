@@ -32,31 +32,22 @@
               nixpkgs.hostPlatform = args.system;
             };
           }
-
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs // {inherit (args) system;};
-            home-manager.users.${args.user} = import (../home + "/${args.user}@${args.hostname}");
-            home-manager.backupFileExtension = "backup";
-          }
-          specialArgs.home-manager.darwinModules.home-manager
           (import ../hosts/${hostname} {
-            inherit user;
-            inherit pkgs;
+            inherit user pkgs;
             inherit (nixpkgs) lib;
           })
 
+          (import ../modules/home/config.nix {
+            inherit specialArgs;
+            inherit (args) system user hostname;
+          })
+          specialArgs.home-manager.darwinModules.home-manager
+
+          (import ../modules/stylix {inherit pkgs theme;})
+          specialArgs.stylix.darwinModules.stylix
+
           ../modules/common
           ../modules/darwin
-
-          {
-            stylix = {
-              enable = true;
-              base16Scheme = ../theme/${theme}.yaml;
-            };
-          }
-          specialArgs.stylix.darwinModules.stylix
         ];
       };
 
@@ -85,39 +76,23 @@
               nixpkgs.hostPlatform = args.system;
             };
           }
-
-          {
-            # TODO: move to modules/home
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs // {inherit (args) system;};
-            home-manager.users.${args.user} = import (../home + "/${args.user}@${args.hostname}");
-            home-manager.backupFileExtension = "backup";
-          }
-          specialArgs.home-manager.nixosModules.home-manager
           (import ../hosts/${hostname} {
-            inherit user;
-            inherit pkgs;
+            inherit user pkgs;
             inherit (nixpkgs) lib;
           })
 
-          ../modules/common
+          (import ../modules/home/config.nix {
+            inherit specialArgs;
+            inherit (args) system user hostname;
+          })
+          specialArgs.home-manager.nixosModules.home-manager
+
           specialArgs.disko.nixosModules.disko
 
-          {
-            stylix = {
-              # TODO: we should move this stuff out somewhere
-              enable = true;
-              base16Scheme = ../theme/${theme}.yaml;
-              fonts = {
-                sansSerif = {
-                  package = pkgs.fira-code;
-                  name = "Fira Code";
-                };
-              };
-            };
-          }
+          (import ../modules/stylix {inherit pkgs theme;})
           specialArgs.stylix.nixosModules.stylix
+
+          ../modules/common
         ];
       };
 
