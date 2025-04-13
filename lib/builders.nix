@@ -46,6 +46,9 @@
           (import ../modules/stylix {inherit pkgs theme;})
           specialArgs.stylix.darwinModules.stylix
 
+          { programs.nix-index-database.comma.enable = true; }
+          specialArgs.nix-index-database.darwinModules.nix-index
+
           ../modules/common
           ../modules/darwin
         ];
@@ -91,6 +94,9 @@
 
           (import ../modules/stylix {inherit pkgs theme;})
           specialArgs.stylix.nixosModules.stylix
+
+          { programs.nix-index-database.comma.enable = true; }
+          specialArgs.nix-index-database.nixosModules.nix-index
 
           ../modules/common
         ];
