@@ -44,6 +44,9 @@ in {
       # macbook
       brightnessctl
       alsa-utils
+
+      # misc
+      brave
     ];
   };
 }
