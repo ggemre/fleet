@@ -1,6 +1,7 @@
 {
   pkgs,
   user,
+  inputs,
   ...
 }: {
   imports = [
@@ -8,6 +9,8 @@
     ./disko-config.nix
 
     ../../modules/nixos
+
+    inputs.nixos-hardware.nixosModules.apple-macbook-air-7
   ];
 
   users.users."${user}" = {

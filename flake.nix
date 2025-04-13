@@ -30,6 +30,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     stylix.url = "github:danth/stylix";
 
     schizofox.url = "github:schizofox/schizofox";

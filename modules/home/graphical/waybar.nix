@@ -103,7 +103,7 @@
       	  border: none;
           font-family: "${config.stylix.fonts.monospace.name}";
       	  font-size: 12px;
-      	  font-weight: 400;
+      	  font-weight: bold;
           padding: 0px 0px 0px 0px;
         }
       	window#waybar {
@@ -119,12 +119,12 @@
       	}
       	#workspaces button {
       	  background-color: #${config.lib.stylix.colors.base00};
-      	  color: #${config.lib.stylix.colors.base05};
+      	  color: #${config.lib.stylix.colors.base07};
       	  padding: 0;
       	  margin-top: 0;
       	}
         #workspaces button:hover {
-          color: #${config.lib.stylix.colors.base05};
+          color: #${config.lib.stylix.colors.base04};
           background-color: #${config.lib.stylix.colors.base00};
         }
       	#workspaces button.active {
@@ -139,7 +139,6 @@
       	}
         #clock {
           color: #${config.lib.stylix.colors.base0C};
-          font-weight: 500;
           margin-left: 8px;
         }
         #cava {
@@ -187,7 +186,7 @@
         #custom-power {
           color: #${config.lib.stylix.colors.base01};
           background-color: #${config.lib.stylix.colors.base08};
-          font-weight: 500;
+          padding-left: 8px;
         }
     '';
   };

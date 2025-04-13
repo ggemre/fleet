@@ -33,7 +33,7 @@
             };
           }
           (import ../hosts/${hostname} {
-            inherit user pkgs;
+            inherit user pkgs inputs;
             inherit (nixpkgs) lib;
           })
 
@@ -77,7 +77,7 @@
             };
           }
           (import ../hosts/${hostname} {
-            inherit user pkgs;
+            inherit user pkgs inputs;
             inherit (nixpkgs) lib;
           })
 
