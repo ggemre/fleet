@@ -17,8 +17,8 @@ in {
     ../../modules/home/tui/helix.nix
     ../../modules/home/tui/yazi.nix
     ../../modules/home/browser/schizofox.nix
-    ../../modules/home/graphical/hyprland.nix
-    ../../modules/home/graphical/waybar.nix
+
+    ../../modules/home/graphical/hypr
   ];
 
   home = {

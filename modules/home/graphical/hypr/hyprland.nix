@@ -3,16 +3,9 @@ _: {
     enable = true;
     xwayland.enable = true;
     settings = {
-      # TODO: I used to have this in a separate mod :((
-      env = [
-        "XCURSOR_SIZE,10"
-        "WLR_NO_HARDWARE_CURSORS,1"
-        "WLR_RENDERER_ALLOW_SOFTWARE,1"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_SESSION_DESKTOP,Hyprland"
+      exec-once = [
+        "waybar"
       ];
-
       misc.disable_hyprland_logo = true;
       input = {
         kb_layout = "us";

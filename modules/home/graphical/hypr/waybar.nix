@@ -3,7 +3,7 @@
 
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
+    systemd.enable = false; # let our wm start it
     settings = {
       main = {
         layer = "top";
