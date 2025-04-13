@@ -63,10 +63,18 @@ shell:
 history:
   nix profile history --profile /nix/var/nix/profiles/system
 
-[doc('Remove week old generations and remove unused `/nix/store` entries')]
+[doc('Remove week old generations and unused derivations')]
 [group('system')]
 gc:
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
   sudo nix store gc --debug
+
+[linux]
+[doc('Clear boot entries besides current profile for {{host}}')]
+[group('system')]
+prune host:
+  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system
   sudo /run/current-system/bin/switch-to-configuration boot # update boot menu
+  sudo rm /nix/var/nix/profiles/system-*
+  sudo nixos-rebuild boot --flake .#{{host}}
 
