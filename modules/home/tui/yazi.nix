@@ -5,7 +5,7 @@ _: {
 
     settings = {
       manager = {
-        # layout = [1 4 3];
+        layout = [1 4 3];
         sort_by = "alphabetical";
         sort_sensitive = true;
         sort_reverse = false;
@@ -15,11 +15,11 @@ _: {
         show_symlink = true;
       };
 
-      # preview = {
-      #   tab_size = 2;
-      #   max_width = 600;
-      #   max_height = 900;
-      # };
+      preview = {
+        tab_size = 2;
+        max_width = 600;
+        max_height = 900;
+      };
     };
     keymap = {
       manager.prepend_keymap = [

@@ -1,13 +1,32 @@
-_: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
 
+    # shellAliases = {
+    #   ls = "eza";
+    #   cat = "bat";
+    #   grep = "rg";
+    # };
+
     shellAliases = {
-      ls = "eza";
-      cat = "bat";
-      grep = "rg";
+      ls =
+        if lib.hasAttr "eza" pkgs
+        then "eza"
+        else "ls";
+      cat =
+        if lib.hasAttr "bat" pkgs
+        then "bat"
+        else "cat";
+      grep =
+        if lib.hasAttr "ripgrep" pkgs
+        then "rg"
+        else "grep";
     };
 
     # sessionVariables = {

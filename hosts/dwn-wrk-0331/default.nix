@@ -6,6 +6,7 @@
   imports = [
     ./system.nix
     ./homebrew.nix
+    ../../modules/darwin
   ];
 
   users.users."${user}" = {
