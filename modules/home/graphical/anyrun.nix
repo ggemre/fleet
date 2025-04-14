@@ -31,13 +31,6 @@
     };
 
     extraCss = ''
-      @define-color text #${config.lib.stylix.colors.base05};
-      @define-color alt-text #${config.lib.stylix.colors.base04};
-      @define-color bg-active #${config.lib.stylix.colors.base01};
-      @define-color bg-inactive #${config.lib.stylix.colors.base00};
-      @define-color unselected #${config.lib.stylix.colors.base00};
-      @define-color selected #${config.lib.stylix.colors.base03};
-
       * {
         transition: 200ms ease;
         font-family: "${config.stylix.fonts.monospace.name}";
@@ -47,10 +40,11 @@
 
       #main,
       #plugin {
-        color: @text;
-        background-color: @bg-active;
-        border: 1px solid @bg-inactive;
-        border-radius: 4px;
+        color: #${config.lib.stylix.colors.base05};
+        background-color: #${config.lib.stylix.colors.base01};
+        margin: 0;
+        padding: 0;
+        border: none;
       }
 
       #window {
@@ -58,20 +52,22 @@
       }
 
       #entry {
-        color: @text;
-        background-color: @bg-inactive;
+        color: #${config.lib.stylix.colors.base05};
+        background-color: #${config.lib.stylix.colors.base00};
         border-radius: 4px;
+        border: 1px solid #${config.lib.stylix.colors.base04};
       }
 
       #match {
-        color: @text;
-        background: @unselected;
-        padding: 4px;
+        color: #${config.lib.stylix.colors.base05};
+        background-color: #${config.lib.stylix.colors.base00};
+        padding: 2px;
       }
 
       #match:selected {
-        color: @alt-text;
-        background-color: @selected;
+        color: #${config.lib.stylix.colors.base0F};
+        background-color: #${config.lib.stylix.colors.base07};
+        border-radius: 4px;
       }
     '';
   };
