@@ -19,6 +19,8 @@ in {
     ../../modules/home/browser/schizofox.nix
     ../../modules/home/graphical/anyrun.nix
 
+    ../../modules/home/browser/brave.nix
+
     ../../modules/home/graphical/hypr
   ];
 
@@ -45,9 +47,6 @@ in {
       # macbook
       brightnessctl
       alsa-utils
-
-      # misc
-      brave
     ];
   };
 }
