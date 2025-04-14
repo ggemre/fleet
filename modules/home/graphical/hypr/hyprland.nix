@@ -1,7 +1,8 @@
-_: {
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
     settings = {
       exec-once = [
         "waybar"
@@ -55,6 +56,7 @@ _: {
       bind = [
         "$mod, T, exec, ghostty"
         "$mod, B, exec, schizofox"
+        "$mod, SPACE, exec, anyrun"
         "$mod, Q, killactive"
         "$mod, M, exit"
         "$mod, V, togglefloating"
