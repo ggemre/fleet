@@ -59,6 +59,7 @@
     home = import ./lib/home.nix {inherit nixpkgs home-manager specialArgs;};
     shell = import ./lib/shell.nix {inherit nixpkgs;};
     pkgsHelper = import ./lib/pkgs.nix {inherit nixpkgs;};
+    templatesHelper = import ./templates;
   in {
     nixosConfigurations = {
       test = builders.mkNixosSystem {
@@ -72,7 +73,7 @@
         user = "gge";
         hostname = "nix-wrk-0410";
         system = "x86_64-linux";
-        theme = "rose-pine";
+        theme = "catppuccin-mocha";
       };
 
       iso1 = builders.mkNixosIso {
@@ -125,5 +126,7 @@
     in {
       inherit (internalPkgs) mkhostname;
     });
+
+    templates = templatesHelper;
   };
 }
