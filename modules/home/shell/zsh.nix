@@ -8,12 +8,6 @@
     syntaxHighlighting.enable = true;
     enableCompletion = true;
 
-    # shellAliases = {
-    #   ls = "eza";
-    #   cat = "bat";
-    #   grep = "rg";
-    # };
-
     shellAliases = {
       ls =
         if lib.hasAttr "eza" pkgs
@@ -34,8 +28,8 @@
     #   NIX_PATH = "$HOME/.nix-defexpr/channels";
     # };
 
-    # initExtra = ''
-    #   eval "$(direnv hook zsh)"
-    # '';
+    initExtra = ''
+      eval "$(direnv hook zsh)"
+    '';
   };
 }

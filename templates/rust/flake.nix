@@ -7,26 +7,29 @@
     crane.url = "github:ipetkov/crane";
   };
 
-  outputs = { self, nixpkgs, flake-utils, crane }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    crane,
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+      };
 
-        craneLib = crane.mkLib pkgs;
+      craneLib = crane.mkLib pkgs;
 
-        my-crate = craneLib.buildPackage {
-          src = craneLib.cleanCargoSource ./.;
-        };
-      in {
-        packages.default = my-crate;
+      my-crate = craneLib.buildPackage {
+        src = craneLib.cleanCargoSource ./.;
+      };
+    in {
+      packages.default = my-crate;
 
-        apps.default = flake-utils.lib.mkApp {
-          drv = my-crate;
-        };
+      apps.default = flake-utils.lib.mkApp {
+        drv = my-crate;
+      };
 
-        devShells.default = craneLib.devShell {};
-      });
+      devShells.default = craneLib.devShell {};
+    });
 }
-

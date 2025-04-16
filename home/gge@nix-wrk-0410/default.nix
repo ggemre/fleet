@@ -11,15 +11,15 @@ in {
 
     ../../modules/home/shell/zsh.nix
     ../../modules/home/shell/starship.nix
+    ../../modules/home/shell/direnv.nix
     ../../modules/home/cli/eza.nix
     ../../modules/home/cli/git.nix
     ../../modules/home/terminal/ghostty.nix
     ../../modules/home/tui/helix.nix
     ../../modules/home/tui/yazi.nix
     ../../modules/home/browser/schizofox.nix
-    ../../modules/home/graphical/anyrun.nix
-
     ../../modules/home/browser/brave.nix
+    ../../modules/home/graphical/anyrun.nix
 
     ../../modules/home/graphical/hypr
   ];
