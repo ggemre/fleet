@@ -8,7 +8,10 @@
     ./hardware-configuration.nix
     ./disko-config.nix
 
-    ../../modules/nixos
+    (import ../../modules/nixos/greetd.nix {
+      inherit pkgs;
+      command = "Hyprland";
+    })
 
     inputs.nixos-hardware.nixosModules.apple-macbook-air-7
   ];
