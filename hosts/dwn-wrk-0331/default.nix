@@ -6,6 +6,7 @@
   imports = [
     ./system.nix
     ./homebrew.nix
+    ./stylix.nix
     ../../modules/darwin
   ];
 

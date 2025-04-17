@@ -71,14 +71,12 @@
         user = "gge";
         hostname = "nix-wrk-0404";
         system = "x86_64-linux";
-        theme = "catppuccin-mocha";
       };
 
       main = builders.mkNixosSystem {
         user = "gge";
         hostname = "nix-wrk-0410";
         system = "x86_64-linux";
-        theme = "catppuccin-mocha";
       };
 
       iso1 = builders.mkNixosIso {
@@ -92,7 +90,6 @@
         user = "gge";
         hostname = "dwn-wrk-0331";
         system = "x86_64-darwin";
-        theme = "rose-pine";
       };
     };
 

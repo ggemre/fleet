@@ -7,7 +7,6 @@
   mkHome = {
     user,
     system,
-    theme ? "catppuccin-mocha",
     ...
   } @ args: let
     pkgs = import nixpkgs {
@@ -24,8 +23,7 @@
           inherit (args) system;
         };
       modules = [
-        ../home/${user} # TODO: this doesn't exist, move or create
-        (import ../modules/stylix {inherit pkgs theme;})
+        ../home/standalone/${user}
         specialArgs.stylix.homeManagerModules.stylix
       ];
     };

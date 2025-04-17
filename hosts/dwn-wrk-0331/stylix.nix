@@ -1,11 +1,9 @@
-{
-  theme,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: let
+  theme = "catppuccin-mocha";
+in {
   stylix = {
     enable = true;
-    base16Scheme = ./theme/${theme}.yaml;
+    base16Scheme = ../../theme/${theme}.yaml;
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;

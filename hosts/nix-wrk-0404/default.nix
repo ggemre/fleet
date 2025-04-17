@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
+    ./stylix.nix
   ];
 
   users.users."${user}" = {

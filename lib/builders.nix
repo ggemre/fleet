@@ -9,7 +9,6 @@
     system,
     user,
     hostname,
-    theme ? "catppuccin-mocha",
     ...
   } @ args: let
     allowedSystems = ["x86_64-darwin" "aarch64-darwin"];
@@ -47,7 +46,6 @@
           })
           specialArgs.home-manager.darwinModules.home-manager
 
-          (import ../modules/stylix {inherit pkgs theme;})
           specialArgs.stylix.darwinModules.stylix
 
           {programs.nix-index-database.comma.enable = true;}
@@ -62,7 +60,6 @@
     system,
     user,
     hostname,
-    theme ? "catppuccin-mocha",
     ...
   } @ args: let
     allowedSystems = ["x86_64-linux" "aarch64-linux"];
@@ -100,7 +97,6 @@
 
           specialArgs.disko.nixosModules.disko
 
-          (import ../modules/stylix {inherit pkgs theme;})
           specialArgs.stylix.nixosModules.stylix
 
           {programs.nix-index-database.comma.enable = true;}

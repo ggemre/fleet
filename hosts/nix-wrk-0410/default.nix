@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
+    ./stylix.nix
 
     (import ../../modules/nixos/greetd.nix {
       inherit pkgs;
