@@ -6,6 +6,7 @@
     settings = {
       exec-once = [
         "waybar"
+        "hypridle"
       ];
       misc.disable_hyprland_logo = true;
       input = {
@@ -59,6 +60,7 @@
         "$mod, SPACE, exec, anyrun"
         "$mod, Q, killactive"
         "$mod, M, exit"
+        "$mod SHIFT, L, exec, hyprlock"
         "$mod, V, togglefloating"
         "$mod, P, pseudo, # dwindle"
         "$mod, H, togglesplit, # dwindle"
