@@ -107,7 +107,7 @@
           padding: 0px 0px 0px 0px;
         }
       	window#waybar {
-      	  background: rgba(43, 48, 59, 0.5);
+      	  background: rgba(30, 30, 30, 0.3);
         }
       	#workspaces {
       	  border-radius: 10px;

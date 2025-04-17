@@ -54,7 +54,7 @@
           "general.smoothScroll" = true;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "browser.download.folderList" = 2;
-          "browser.download.dir" = "$HOME/tmp";
+          "browser.download.dir" = "$HOME/tmp"; # TODO: not certain firefox recognizes $HOME
           "browser.download.lastDir" = "$HOME/tmp";
           "browser.download.useDownloadDir" = true;
           "browser.in-content.dark-mode" = true;
