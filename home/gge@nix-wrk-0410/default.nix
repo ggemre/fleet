@@ -17,7 +17,7 @@ in {
     ../../modules/home/terminal/ghostty.nix
     ../../modules/home/tui/helix.nix
     ../../modules/home/tui/yazi.nix
-    ../../modules/home/browser/schizofox.nix
+    ../../modules/home/browser/firefox.nix
     ../../modules/home/browser/brave.nix
     ../../modules/home/graphical/anyrun.nix
 

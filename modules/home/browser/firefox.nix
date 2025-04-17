@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     profiles = {
@@ -67,6 +67,10 @@ _: {
             };
           };
         };
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          bitwarden
+        ];
         settings = {
           # General settings
           "general.smoothScroll" = true;

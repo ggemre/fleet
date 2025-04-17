@@ -54,8 +54,8 @@
       "$mod" = "SUPER";
 
       bind = [
-        "$mod, T, exec, ghostty"
-        "$mod, B, exec, schizofox"
+        "$mod, T, exec, ghostty" # TODO: extract these programs to inputs or move this file to a profile.
+        "$mod, B, exec, firefox"
         "$mod, SPACE, exec, anyrun"
         "$mod, Q, killactive"
         "$mod, M, exit"

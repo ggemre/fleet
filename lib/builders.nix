@@ -13,7 +13,11 @@
     ...
   } @ args: let
     allowedSystems = ["x86_64-darwin" "aarch64-darwin"];
-    pkgs = import nixpkgs {inherit (args) system;};
+    pkgs = import nixpkgs {
+      inherit (args) system;
+      overlays = [inputs.nur.overlays.default];
+    };
+    homeSpecialArgs = specialArgs // {inherit pkgs;};
   in
     assert builtins.elem system allowedSystems
     || throw ''
@@ -38,7 +42,7 @@
           })
 
           (import ../modules/home/config.nix {
-            inherit specialArgs;
+            specialArgs = homeSpecialArgs;
             inherit (args) system user hostname;
           })
           specialArgs.home-manager.darwinModules.home-manager
@@ -62,7 +66,11 @@
     ...
   } @ args: let
     allowedSystems = ["x86_64-linux" "aarch64-linux"];
-    pkgs = import nixpkgs {inherit (args) system;};
+    pkgs = import nixpkgs {
+      inherit (args) system;
+      overlays = [inputs.nur.overlays.default];
+    };
+    homeSpecialArgs = specialArgs // {inherit pkgs;};
   in
     assert builtins.elem system allowedSystems
     || throw ''
@@ -85,7 +93,7 @@
           })
 
           (import ../modules/home/config.nix {
-            inherit specialArgs;
+            specialArgs = homeSpecialArgs;
             inherit (args) system user hostname;
           })
           specialArgs.home-manager.nixosModules.home-manager
