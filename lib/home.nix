@@ -25,7 +25,7 @@
         };
       modules = [
         ../home/${user} # TODO: this doesn't exist, move or create
-        ../modules/stylix
+        (import ../modules/stylix {inherit pkgs theme;})
         specialArgs.stylix.homeManagerModules.stylix
       ];
     };

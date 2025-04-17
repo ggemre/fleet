@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  stylix.targets.firefox.profileNames = ["main"];
   programs.firefox = {
     enable = true;
     profiles = {
@@ -7,67 +8,44 @@
         name = "main";
         search = {
           force = true;
-          default = "DuckDuckGo";
+          default = "ddg";
           engines = {
+            "GitHub" = {
+              urls = [{template = "https://github.com/search?q={searchTerms}&type=code";}];
+              definedAliases = ["@gh"];
+            };
             "Nix Packages" = {
-              urls = [
-                {
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    {
-                      name = "type";
-                      value = "packages";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+              urls = [{template = "https://search.nixos.org/packages?channel=unstable&type=packages&query={searchTerms}";}];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@np"];
             };
-
-            "NixOS Options" = {
-              urls = [
-                {
-                  template = "https://search.nixos.org/options";
-                  params = [
-                    {
-                      name = "channel";
-                      value = "unstable";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+            "Nix Options" = {
+              urls = [{template = "https://search.nixos.org/options?channel=unstable&type=packages&query={searchTerms}";}];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@no"];
             };
-
-            "Home Manager" = {
-              urls = [
-                {
-                  template = "https://home-manager-options.extranix.com";
-                  params = [
-                    {
-                      name = "release";
-                      value = "master";
-                    }
-                    {
-                      name = "query";
-                      value = "{searchTerms}";
-                    }
-                  ];
-                }
-              ];
+            "Home Manager Options" = {
+              urls = [{template = "https://home-manager-options.extranix.com/?release=master&query={searchTerms}";}];
               definedAliases = ["@hm"];
             };
           };
         };
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        bookmarks = {
+          force = true;
+          settings = [
+            {
+              name = "GitHub";
+              keyword = "gh";
+              url = "https://github.com";
+            }
+            {
+              name = "ProtonMail";
+              keyword = "ma";
+              url = "https://mail.proton.me/";
+            }
+          ];
+        };
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           bitwarden
         ];
