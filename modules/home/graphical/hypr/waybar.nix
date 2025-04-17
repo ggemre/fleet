@@ -119,12 +119,12 @@
       	}
       	#workspaces button {
       	  background-color: #${config.lib.stylix.colors.base00};
-      	  color: #${config.lib.stylix.colors.base07};
+      	  color: #${config.lib.stylix.colors.base04};
       	  padding: 0;
       	  margin-top: 0;
       	}
         #workspaces button:hover {
-          color: #${config.lib.stylix.colors.base04};
+          color: #${config.lib.stylix.colors.base07};
           background-color: #${config.lib.stylix.colors.base00};
         }
       	#workspaces button.active {
@@ -164,7 +164,7 @@
           padding: 0px 12px 0px 0px;
         }
         #memory {
-          color: #${config.lib.stylix.colors.base0A};
+          color: #${config.lib.stylix.colors.base0F};
           border-radius: 0;
           margin-right: 0;
           padding: 0px 12px 0px 0px;
