@@ -14,12 +14,13 @@ in {
     ../../modules/home/shell/direnv.nix
     ../../modules/home/cli/eza.nix
     ../../modules/home/cli/git.nix
+    ../../modules/home/cli/cliphist.nix
     ../../modules/home/terminal/ghostty.nix
     ../../modules/home/tui/helix.nix
     ../../modules/home/tui/yazi.nix
     ../../modules/home/browser/firefox.nix
     ../../modules/home/browser/brave.nix
-    ../../modules/home/graphical/anyrun.nix
+    ../../modules/home/graphical/wofi.nix
 
     ../../modules/home/graphical/hypr
   ];
@@ -44,6 +45,8 @@ in {
       bat
       just
       wbg
+      wl-clipboard
+      wtype
 
       # macbook
       brightnessctl

@@ -14,6 +14,7 @@ in {
         "waybar"
         "hypridle"
         "wbg $(find ${wallpapers}/${wallpaper_theme} -type f | shuf -n 1)"
+        "wl-paste --type text --watch cliphist store"
       ];
       misc.disable_hyprland_logo = true;
       input = {
@@ -64,7 +65,7 @@ in {
       bind = [
         "$mod, T, exec, ghostty" # TODO: extract these programs to inputs or move this file to a profile.
         "$mod, B, exec, firefox"
-        "$mod, SPACE, exec, anyrun"
+        "$mod, SPACE, exec, wofi --show drun"
         "$mod, Q, killactive"
         "$mod, M, exit"
         "$mod SHIFT, L, exec, hyprlock"
@@ -75,6 +76,7 @@ in {
         "$mod, F, fullscreen, 0"
         "$mod SHIFT, S, movetoworkspace, special"
         "$mod SHIFT, W, exec, wbg $(find ${wallpapers}/${wallpaper_theme} -type f | shuf -n 1)"
+        "$mod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy && wtype -M ctrl -M shift -k v"
 
         ", XF86AudioMute, exec, amixer set Master toggle"
 
