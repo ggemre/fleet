@@ -1,29 +1,36 @@
 {
-  description = "Rust Hello World with crane and tests";
+  description = "Rust flake using crane";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     crane.url = "github:ipetkov/crane";
   };
 
   outputs = {
     nixpkgs,
-    flake-utils,
     crane,
-  }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = import nixpkgs {
-        inherit system;
-      };
+    ...
+  }: let
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
 
+    eachDefaultSystem = f:
+      builtins.listToAttrs (map (system: {
+          name = system;
+          value = f system;
+        })
+        systems);
+  in {
+    packages = eachDefaultSystem (system: let
+      pkgs = import nixpkgs {inherit system;};
       craneLib = crane.mkLib pkgs;
 
       src = craneLib.cleanCargoSource ./.;
-
-      commonArgs = {
-        inherit src;
-      };
+      commonArgs = {inherit src;};
 
       cargoArtifacts = craneLib.buildDepsOnly commonArgs;
 
@@ -31,34 +38,53 @@
         // {
           inherit cargoArtifacts;
         });
-
-      tests = craneLib.cargoTest (commonArgs
-        // {
-          inherit cargoArtifacts;
-        });
-
-      clippy = craneLib.cargoClippy (commonArgs
-        // {
-          inherit cargoArtifacts;
-          cargoClippyExtraArgs = "--all-targets --all-features";
-        });
-
-      fmt = craneLib.cargoFmt {inherit src;};
     in {
-      packages.default = my-crate;
+      default = my-crate;
+    });
 
-      apps.default = {
+    apps = eachDefaultSystem (system: let
+      pkgs = import nixpkgs {inherit system;};
+      craneLib = crane.mkLib pkgs;
+
+      src = craneLib.cleanCargoSource ./.;
+      cargoArtifacts = craneLib.buildDepsOnly {inherit src;};
+      my-crate = craneLib.buildPackage {
+        inherit src cargoArtifacts;
+      };
+    in {
+      default = {
         type = "app";
         program = "${my-crate}/bin/${my-crate.pname}";
         meta = {
           description = "Description for my rust project";
         };
       };
-
-      devShells.default = craneLib.devShell {};
-
-      checks = {
-        inherit tests clippy fmt;
-      };
     });
+
+    devShells = eachDefaultSystem (system: let
+      pkgs = import nixpkgs {inherit system;};
+      craneLib = crane.mkLib pkgs;
+    in {
+      default = craneLib.devShell {};
+    });
+
+    checks = eachDefaultSystem (system: let
+      pkgs = import nixpkgs {inherit system;};
+      craneLib = crane.mkLib pkgs;
+
+      src = craneLib.cleanCargoSource ./.;
+      commonArgs = {inherit src;};
+      cargoArtifacts = craneLib.buildDepsOnly commonArgs;
+
+      tests = craneLib.cargoTest (commonArgs // {inherit cargoArtifacts;});
+      clippy = craneLib.cargoClippy (commonArgs
+        // {
+          inherit cargoArtifacts;
+          cargoClippyExtraArgs = "--all-targets --all-features";
+        });
+      fmt = craneLib.cargoFmt {inherit src;};
+    in {
+      inherit tests clippy fmt;
+    });
+  };
 }

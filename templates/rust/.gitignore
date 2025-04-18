@@ -7,5 +7,5 @@ target/
 
 # Nix flake directories
 result
-.direnv/
+.direnv
 
