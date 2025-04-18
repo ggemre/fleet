@@ -46,6 +46,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    wallpapers = {
+      url = "github:ggemre/wallpapers";
+      flake = false;
+    };
+
     schizofox.url = "github:schizofox/schizofox";
 
     anyrun.url = "github:anyrun-org/anyrun";

@@ -43,6 +43,7 @@ in {
       ripgrep
       bat
       just
+      wbg
 
       # macbook
       brightnessctl

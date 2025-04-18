@@ -11,7 +11,12 @@
         modules-left = ["hyprland/workspaces" "cava"];
         modules-center = ["clock"];
         modules-right = ["network" "pulseaudio" "cpu" "memory" "disk" "battery" "custom/power"];
-        "hyprland/workspaces" = {format = "";};
+        "hyprland/workspaces" = {
+          format = "";
+          persistent-workspaces = {
+            "*" = [1 2 3];
+          };
+        };
         clock = {
           interval = 60;
           format = "{:%I:%M %p %a %b %d}";
@@ -107,7 +112,7 @@
           padding: 0px 0px 0px 0px;
         }
       	window#waybar {
-      	  background: rgba(30, 30, 30, 0.3);
+      	  background: rgba(30, 30, 30, 0.45);
         }
       	#workspaces {
       	  border-radius: 10px;

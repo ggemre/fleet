@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  wallpapers,
+  ...
+}: let
+  wallpaper_theme = "catppuccin-mocha";
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -7,6 +13,7 @@
       exec-once = [
         "waybar"
         "hypridle"
+        "wbg $(find ${wallpapers}/${wallpaper_theme} -type f | shuf -n 1)"
       ];
       misc.disable_hyprland_logo = true;
       input = {
@@ -67,6 +74,7 @@
         "$mod, S, togglespecialworkspace"
         "$mod, F, fullscreen, 0"
         "$mod SHIFT, S, movetoworkspace, special"
+        "$mod SHIFT, W, exec, wbg $(find ${wallpapers}/${wallpaper_theme} -type f | shuf -n 1)"
 
         ", XF86AudioMute, exec, amixer set Master toggle"
 
