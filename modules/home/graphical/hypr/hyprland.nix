@@ -143,7 +143,3 @@ in {
     };
   };
 }
-# See https://wiki.hyprland.org/Configuring/Monitors/
-# exec-once = waybar & find $HOME/media/images/wallpapers/${theme.name} -type f | shuf -n 1 | xargs wbg
-# bind = $mainMod SHIFT, W, exec, find $HOME/media/images/wallpapers/${theme.name} -type f | shuf -n 1 | xargs wbg
-
