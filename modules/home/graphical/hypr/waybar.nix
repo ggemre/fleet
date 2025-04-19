@@ -29,8 +29,8 @@
           bars = 14;
           lower_cutoff_freq = 50;
           higher_cutoff_freq = 10000;
-          sleep_timer = 0;
-          input_delay = 2;
+          sleep_timer = 1;
+          input_delay = 1;
           hide_on_silence = true;
           method = "pulse";
           source = "auto";

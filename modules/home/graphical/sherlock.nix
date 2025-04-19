@@ -35,14 +35,6 @@
           priority = 1;
         }
         {
-          name = "App Launcher";
-          alias = "app";
-          type = "app_launcher";
-          args = {};
-          priority = 2;
-          home = true;
-        }
-        {
           name = "Power Management";
           alias = "pm";
           type = "command";
@@ -96,7 +88,7 @@
     * {
         padding: 0px;
         margin: 0px;
-        -gtk-secondary-caret-color: ${config.lib.stylix.colors.withHashtag.base01};
+        -gtk-secondary-caret-color: ${config.lib.stylix.colors.withHashtag.base00};
         outline-width: 0px;
         outline-offset: -3px;
         outline-style: dashed;
