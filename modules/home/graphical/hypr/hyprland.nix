@@ -65,7 +65,8 @@ in {
       bind = [
         "$mod, T, exec, ghostty" # TODO: extract these programs to inputs or move this file to a profile.
         "$mod, B, exec, firefox"
-        "$mod, SPACE, exec, wofi --show drun"
+        # "$mod, SPACE, exec, wofi --show drun"
+        "$mod, SPACE, exec, sherlock"
         "$mod, Q, killactive"
         "$mod, M, exit"
         "$mod SHIFT, L, exec, hyprlock"

@@ -22,6 +22,8 @@ in {
     ../../modules/home/browser/brave.nix
     ../../modules/home/graphical/wofi.nix
 
+    ../../modules/home/graphical/sherlock.nix
+
     ../../modules/home/graphical/hypr
   ];
 

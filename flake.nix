@@ -51,6 +51,8 @@
 
     # schizofox.url = "github:schizofox/schizofox";
     # anyrun.url = "github:anyrun-org/anyrun";
+
+    sherlock.url = "github:Skxxtz/sherlock";
   };
 
   outputs = inputs @ {
