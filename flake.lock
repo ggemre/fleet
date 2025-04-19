@@ -324,11 +324,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744919155,
-        "narHash": "sha256-IJksPW32V9gid9vDxoloJMRk+YGjxq5drFHBFeBkKU8=",
+        "lastModified": 1745071558,
+        "narHash": "sha256-bvcatss0xodcdxXm0LUSLPd2jjrhqO3yFSu3stOfQXg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "72526a5f7cde2ef9075637802a1e2a8d2d658f70",
+        "rev": "9676e8a52a177d80c8a42f66566362a6d74ecf78",
         "type": "github"
       },
       "original": {
@@ -339,6 +339,27 @@
       }
     },
     "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "rofi-applets",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1745071558,
+        "narHash": "sha256-bvcatss0xodcdxXm0LUSLPd2jjrhqO3yFSu3stOfQXg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "9676e8a52a177d80c8a42f66566362a6d74ecf78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_3": {
       "inputs": {
         "nixpkgs": [
           "sherlock",
@@ -359,7 +380,7 @@
         "type": "github"
       }
     },
-    "home-manager_3": {
+    "home-manager_4": {
       "inputs": {
         "nixpkgs": [
           "stylix",
@@ -418,11 +439,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1744536153,
-        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
+        "lastModified": 1744868846,
+        "narHash": "sha256-5RJTdUHDmj12Qsv7XOhuospjAjATNiTMElplWnJE9Hs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
+        "rev": "ebe4301cbd8f81c4f8d3244b3632338bbeb6d49c",
         "type": "github"
       },
       "original": {
@@ -449,6 +470,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1744932701,
+        "narHash": "sha256-fusHbZCyv126cyArUwwKrLdCkgVAIaa/fQJYFlCEqiU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1742937945,
         "narHash": "sha256-lWc+79eZRyvHp/SqMhHTMzZVhpxkRvthsP1Qx6UCq0E=",
         "owner": "NixOS",
@@ -463,7 +500,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1743583204,
         "narHash": "sha256-F7n4+KOIfWrwoQjXrL2wD9RhFYLs2/GGe/MQY1sSdlE=",
@@ -488,11 +525,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1744933560,
-        "narHash": "sha256-ULBpKGEQtqLfuDdmssdChenTPnlCK47FbIF0r8ELZ64=",
+        "lastModified": 1745091977,
+        "narHash": "sha256-M7h+omxmXlXv9TzRWBWwniFsd17G4y8GfgkCEG99quY=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "cb187ba0bc56f5f4772d3f998592cc2de157fd6b",
+        "rev": "38cd9c1e5f169b6a544f4b1c54b7734c6925263e",
         "type": "github"
       },
       "original": {
@@ -524,6 +561,25 @@
         "type": "github"
       }
     },
+    "rofi-applets": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1745100642,
+        "narHash": "sha256-Q41Bpax/1vWR/XdiFeM0HdjeHv0KMeXoUwezsAXOQh8=",
+        "owner": "ggemre",
+        "repo": "rofi-applets",
+        "rev": "11b7b673441c1639a5ffdb03c8901a7de04b8d12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ggemre",
+        "repo": "rofi-applets",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin": "darwin",
@@ -533,6 +589,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "rofi-applets": "rofi-applets",
         "sherlock": "sherlock",
         "stylix": "stylix",
         "wallpapers": "wallpapers"
@@ -563,8 +620,8 @@
       "inputs": {
         "crane": "crane",
         "flake-parts": "flake-parts_2",
-        "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_2",
+        "home-manager": "home-manager_3",
+        "nixpkgs": "nixpkgs_3",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
@@ -592,8 +649,8 @@
         "flake-utils": "flake-utils",
         "git-hooks": "git-hooks",
         "gnome-shell": "gnome-shell",
-        "home-manager": "home-manager_3",
-        "nixpkgs": "nixpkgs_3",
+        "home-manager": "home-manager_4",
+        "nixpkgs": "nixpkgs_4",
         "nur": "nur_2",
         "systems": "systems",
         "tinted-foot": "tinted-foot",

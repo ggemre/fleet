@@ -20,9 +20,7 @@ in {
     ../../modules/home/tui/yazi.nix
     ../../modules/home/browser/firefox.nix
     ../../modules/home/browser/brave.nix
-    ../../modules/home/graphical/wofi.nix
-
-    ../../modules/home/graphical/sherlock.nix
+    ../../modules/home/graphical/rofi-applets.nix
 
     ../../modules/home/graphical/hypr
   ];
@@ -49,6 +47,7 @@ in {
       wbg
       wl-clipboard
       wtype
+      mako
 
       # macbook
       brightnessctl

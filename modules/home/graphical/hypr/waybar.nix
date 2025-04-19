@@ -54,6 +54,7 @@
           tooltip-format-wifi = "{essid} ({signalStrength}%)";
           tooltip-format-ethernet = "{ifname}";
           tooltip-format-disconnected = "Disconnected";
+          on-click = "rofi-networkmanager";
         };
         pulseaudio = {
           format = "{icon} {volume}%";
@@ -98,7 +99,7 @@
         };
         "custom/power" = {
           format = "⏻";
-          on-click = "rofi -show p -modi p:'rofi-power-menu --no-symbols'";
+          on-click = "rofi-powermenu";
           tooltip = false;
         };
       };

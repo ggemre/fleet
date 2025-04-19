@@ -53,6 +53,8 @@
     # anyrun.url = "github:anyrun-org/anyrun";
 
     sherlock.url = "github:Skxxtz/sherlock";
+
+    rofi-applets.url = "github:ggemre/rofi-applets";
   };
 
   outputs = inputs @ {
