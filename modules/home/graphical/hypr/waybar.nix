@@ -116,81 +116,81 @@
         }
       	#workspaces {
       	  border-radius: 10px;
-      	  background-color: #${config.lib.stylix.colors.base00};
-      	  color: #${config.lib.stylix.colors.base05};
+      	  background-color: ${config.lib.stylix.colors.withHashtag.base00};
+      	  color: ${config.lib.stylix.colors.withHashtag.base05};
           font-size: 7px;
           margin: 5px 0px 5px 8px;
           padding: 0px 10px 0px 10px;
       	}
       	#workspaces button {
-      	  background-color: #${config.lib.stylix.colors.base00};
-      	  color: #${config.lib.stylix.colors.base04};
+      	  background-color: ${config.lib.stylix.colors.withHashtag.base00};
+      	  color: ${config.lib.stylix.colors.withHashtag.base04};
       	  padding: 0;
       	  margin-top: 0;
       	}
         #workspaces button:hover {
-          color: #${config.lib.stylix.colors.base07};
-          background-color: #${config.lib.stylix.colors.base00};
+          color: ${config.lib.stylix.colors.withHashtag.base07};
+          background-color: ${config.lib.stylix.colors.withHashtag.base00};
         }
       	#workspaces button.active {
-      	  color: #${config.lib.stylix.colors.base05};
+      	  color: ${config.lib.stylix.colors.withHashtag.base05};
       	}
       	#clock, #cava, #battery, #network, #pulseaudio, #cpu, #memory, #disk, #custom-power {
       	  border-radius: 10px;
-      	  background-color: #${config.lib.stylix.colors.base00};
-      	  color: #${config.lib.stylix.colors.base05};
+      	  background-color: ${config.lib.stylix.colors.withHashtag.base00};
+      	  color: ${config.lib.stylix.colors.withHashtag.base05};
           margin: 5px 8px 5px 0px;
           padding: 0px 10px 0px 10px;
       	}
         #clock {
-          color: #${config.lib.stylix.colors.base0C};
+          color: ${config.lib.stylix.colors.withHashtag.base0C};
           margin-left: 8px;
         }
         #cava {
-          color: #${config.lib.stylix.colors.base03};
+          color: ${config.lib.stylix.colors.withHashtag.base03};
           margin-left: 5px;
         }
         #network {
-          color: #${config.lib.stylix.colors.base0D};
+          color: ${config.lib.stylix.colors.withHashtag.base0D};
         }
         #network.disconnected {
-          color: #${config.lib.stylix.colors.base08};
+          color: ${config.lib.stylix.colors.withHashtag.base08};
         }
         #pulseaudio {
-          color: #${config.lib.stylix.colors.base09};
+          color: ${config.lib.stylix.colors.withHashtag.base09};
           border-radius: 10px 0px 0px 10px;
           margin-right: 0;
           padding: 0px 12px 0px 10px;
         }
         #cpu {
-          color: #${config.lib.stylix.colors.base0A};
+          color: ${config.lib.stylix.colors.withHashtag.base0A};
           border-radius: 0;
           margin-right: 0;
           padding: 0px 12px 0px 0px;
         }
         #memory {
-          color: #${config.lib.stylix.colors.base0F};
+          color: ${config.lib.stylix.colors.withHashtag.base0F};
           border-radius: 0;
           margin-right: 0;
           padding: 0px 12px 0px 0px;
         }
         #disk {
-          color: #${config.lib.stylix.colors.base0E};
+          color: ${config.lib.stylix.colors.withHashtag.base0E};
           border-radius: 0px 10px 10px 0px;
           padding: 0px 10px 0px 0px;
         }
         #battery {
-          color: #${config.lib.stylix.colors.base0B};
+          color: ${config.lib.stylix.colors.withHashtag.base0B};
         }
         #battery.warning {
-          color: #${config.lib.stylix.colors.base0A};
+          color: ${config.lib.stylix.colors.withHashtag.base0A};
         }
         #battery.critical {
-          color: #${config.lib.stylix.colors.base08};
+          color: ${config.lib.stylix.colors.withHashtag.base08};
         }
         #custom-power {
-          color: #${config.lib.stylix.colors.base01};
-          background-color: #${config.lib.stylix.colors.base08};
+          color: ${config.lib.stylix.colors.withHashtag.base01};
+          background-color: ${config.lib.stylix.colors.withHashtag.base08};
           padding-left: 8px;
         }
     '';
