@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  imports = [rofi-applets.homeManagerModules.rofi-applets];
+  imports = [rofi-applets.homeManagerModules.default];
 
   programs.rofi-applets = {
     enable = true;

@@ -525,11 +525,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1745091977,
-        "narHash": "sha256-M7h+omxmXlXv9TzRWBWwniFsd17G4y8GfgkCEG99quY=",
+        "lastModified": 1745114880,
+        "narHash": "sha256-ayhZhk2Lnce6yAf2KsRMXKn+AHqtJk1koOvDALkrWQs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "38cd9c1e5f169b6a544f4b1c54b7734c6925263e",
+        "rev": "28a70feb83d4ef32b862a49a7e8a0ec8d9b63ca7",
         "type": "github"
       },
       "original": {
@@ -567,11 +567,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1745100642,
-        "narHash": "sha256-Q41Bpax/1vWR/XdiFeM0HdjeHv0KMeXoUwezsAXOQh8=",
+        "lastModified": 1745107793,
+        "narHash": "sha256-eN4clt/xjV3S0BKRx27Inypgfgv8sB1yd4qWoNDviHA=",
         "owner": "ggemre",
         "repo": "rofi-applets",
-        "rev": "11b7b673441c1639a5ffdb03c8901a7de04b8d12",
+        "rev": "29c2dde72a382a9a4d64b8d26a1d70a0c1cf9bb5",
         "type": "github"
       },
       "original": {
