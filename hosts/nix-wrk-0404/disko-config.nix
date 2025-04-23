@@ -1,10 +1,6 @@
-# USAGE in your configuration.nix.
-# Update devices to match your hardware.
-# {
-#  imports = [ ./disko-config.nix ];
-#  disko.devices.disk.main.device = "/dev/sda";
-# }
 {
+  fileSystems."/persist".neededForBoot = true;
+
   disko.devices = {
     disk = {
       main = {
@@ -30,9 +26,19 @@
             root = {
               size = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
+                type = "btrfs";
+                extraArgs = ["-f"];
+                subvolumes = {
+                  "/rootfs" = {
+                    mountpoint = "/";
+                  };
+                  "/nix" = {
+                    mountpoint = "/nix";
+                  };
+                  "/persist" = {
+                    mountpoint = "/persist";
+                  };
+                };
               };
             };
           };

@@ -1,12 +1,15 @@
 {
   pkgs,
   user,
+  inputs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
     ./disko-config.nix
     ./stylix.nix
+    ./impermanence.nix
+    inputs.impermanence.nixosModules.impermanence
   ];
 
   users.users."${user}" = {
