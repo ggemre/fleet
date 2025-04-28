@@ -20,5 +20,6 @@
       ".zshrc"
       ".config/starship.toml"
     ];
+    allowOther = true;
   };
 }

@@ -2,12 +2,14 @@
   lib,
   pkgs,
   system,
+  impermanence,
   ...
 }: let
   user = "gge";
 in {
   imports = [
     (import ../../modules/home/user.nix {inherit user system lib;})
+    (import ./impermanence.nix {inherit user impermanence;})
 
     ../../modules/home/shell/zsh.nix
     ../../modules/home/shell/starship.nix
