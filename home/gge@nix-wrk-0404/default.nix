@@ -12,7 +12,6 @@ in {
     (import ./impermanence.nix {inherit user impermanence;})
 
     ../../modules/home/shell/zsh.nix
-    ../../modules/home/shell/starship.nix
     ../../modules/home/shell/direnv.nix
     ../../modules/home/cli/eza.nix
     ../../modules/home/cli/git.nix

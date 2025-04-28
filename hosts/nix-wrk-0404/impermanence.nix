@@ -1,4 +1,5 @@
 {
+  # TODO: experiment with user settings here too
   environment.persistence."/persist" = {
     directories = [
       "/etc/ssh"

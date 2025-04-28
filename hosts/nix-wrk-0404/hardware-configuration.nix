@@ -8,6 +8,7 @@
   ];
 
   boot = {
+    initrd.systemd.enable = true;
     initrd.availableKernelModules = ["ahci" "ohci_pci" "ehci_pci" "usb_storage" "sd_mod" "sr_mod" "rtsx_pci_sdmmc"];
     initrd.kernelModules = [];
     kernelModules = ["kvm-amd"];
@@ -37,6 +38,7 @@
   boot.zfs.devNodes = "/dev/disk/by-id";
   boot.zfs.forceImportRoot = false;
 
+  # TODO: abstract or replace
   systemd.tmpfiles.rules = [
     "d /persist/home/gge 0700 gge users -" # hm impermanence
   ];

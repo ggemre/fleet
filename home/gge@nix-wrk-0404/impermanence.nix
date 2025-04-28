@@ -18,7 +18,6 @@
     files = [
       ".zsh_history"
       ".zshrc"
-      ".config/starship.toml"
     ];
     allowOther = true;
   };
