@@ -48,7 +48,10 @@
 
           specialArgs.stylix.darwinModules.stylix
 
-          {programs.nix-index-database.comma.enable = true;}
+          {
+            programs.nix-index-database.comma.enable = true;
+            programs.command-not-found.enable = nixpkgs.lib.mkForce false;
+          }
           specialArgs.nix-index-database.darwinModules.nix-index
 
           ../modules/common
@@ -99,7 +102,10 @@
 
           specialArgs.stylix.nixosModules.stylix
 
-          {programs.nix-index-database.comma.enable = true;}
+          {
+            programs.nix-index-database.comma.enable = true;
+            programs.command-not-found.enable = nixpkgs.lib.mkForce false;
+          }
           specialArgs.nix-index-database.nixosModules.nix-index
 
           ../modules/common
