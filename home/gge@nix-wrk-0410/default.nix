@@ -21,7 +21,7 @@ in {
     ../../modules/home/browser/firefox.nix
     ../../modules/home/browser/brave.nix
     ../../modules/home/graphical/rofi-applets.nix
-    ../../modules/home/editor/lapce.nix
+    ../../modules/home/editor/zed.nix
 
     ../../modules/home/graphical/hypr
   ];
