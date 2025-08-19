@@ -29,11 +29,11 @@
       themePackages = [
         # https://github.com/adi1090x/plymouth-themes
         (pkgs.adi1090x-plymouth-themes.override {
-          selected_themes = [ "lone" ];
+          selected_themes = ["lone"];
         })
       ];
     };
-    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" ];
+    kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail"];
   };
 
   networking.useDHCP = lib.mkDefault true;
@@ -45,7 +45,7 @@
 
   # slows down boot time and can catch up in session
   # systemd.services.NetworkManager-wait-online.enable = false; XXX: this breaks ly
-  
+
   virtualisation.docker.enable = true;
 
   services = {
