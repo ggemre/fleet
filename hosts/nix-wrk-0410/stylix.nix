@@ -22,5 +22,6 @@ in {
         name = "Noto Color Emoji";
       };
     };
+    targets.plymouth.enable = false;
   };
 }
