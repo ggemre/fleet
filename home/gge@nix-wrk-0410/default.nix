@@ -53,6 +53,9 @@ in {
       # macbook
       brightnessctl
       alsa-utils
+
+      # games
+      prismlauncher
     ];
   };
 }

@@ -22,12 +22,12 @@
     description = user;
     shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "docker"];
   };
 
   programs.zsh.enable = true;
 
-  time.timeZone = "America/Denver";
+  time.timeZone = "Asia/Phnom_Penh";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";

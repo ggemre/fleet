@@ -27,6 +27,8 @@
     wifi.backend = "iwd";
   };
 
+  virtualisation.docker.enable = true;
+
   services = {
     pipewire.enable = false;
     pulseaudio.enable = true;
