@@ -9,9 +9,8 @@
     ./disko-config.nix
     ./stylix.nix
 
-    (import ../../modules/nixos/greetd.nix {
+    (import ../../modules/nixos/ly.nix {
       inherit pkgs;
-      command = "Hyprland";
     })
 
     inputs.nixos-hardware.nixosModules.apple-macbook-air-7
