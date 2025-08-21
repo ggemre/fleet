@@ -31,6 +31,12 @@ build host:
 build host:
   darwin-rebuild build --flake .#{{host}}
 
+[linux]
+[doc('Add new generation of {{host}} to boot list without activation')]
+[group('build')]
+boot host:
+  sudo nixos-rebuild boot --flake .#{{host}}
+
 [linux, macos]
 [doc('Build an iso to ./result/iso')]
 [group('build')]

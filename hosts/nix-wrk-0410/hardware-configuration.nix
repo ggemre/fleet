@@ -25,13 +25,20 @@
     initrd.verbose = false;
     plymouth = {
       enable = true;
-      theme = "lone";
+      theme = "catppuccin-mocha";
       themePackages = [
-        # https://github.com/adi1090x/plymouth-themes
-        (pkgs.adi1090x-plymouth-themes.override {
-          selected_themes = ["lone"];
+        (pkgs.catppuccin-plymouth.override {
+          variant = "mocha";
         })
       ];
+
+      # theme = "lone";
+      # themePackages = [
+      #   # https://github.com/adi1090x/plymouth-themes
+      #   (pkgs.adi1090x-plymouth-themes.override {
+      #     selected_themes = ["lone"];
+      #   })
+      # ];
     };
     kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail"];
   };
